@@ -497,7 +497,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -11570,49 +11570,6 @@ return jQuery;
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-!function (a) {
-  var t,
-      c = '<svg><symbol id="icon-hongqi" viewBox="0 0 1024 1024"><path d="M326.855768 804.808836c0 31.908734-20.273742 58.014298-45.051055 58.014298-24.778336 0-45.052079-26.106588-45.052079-58.014298L236.752634 221.766826c0-31.907711 20.273742-58.014298 45.052079-58.014298 24.778336 0 45.051055 26.106588 45.051055 58.014298L326.855768 804.808836z" fill="#d81e06" ></path><path d="M835.080791 470.304366c-37.894052 7.330966-187.873901 59.688427-214.18822 53.676503s4.813632-52.572356-64.054875-52.572356c-89.13918 0-172.729993 30.229488-172.729993 30.229488s-32.061207 17.696034-32.061207-30.229488 0-158.100808 0-203.12628 40.396035-62.850443 40.396035-62.850443 60.931744-31.293727 164.765601-31.293727c66.248843 0.255827 32.777521 43.745317 63.684438 51.037397 30.903847 7.291057 195.700147-42.110073 195.700147-42.110073 48.570205-8.927323 58.31515-1.252527 58.31515 53.495378 0 0 0 157.589155 0 178.055279S872.980983 462.9734 835.080791 470.304366z" fill="#d81e06" ></path></symbol><symbol id="icon-dilei1" viewBox="0 0 1024 1024"><path d="M350.9 358.5c-3.3-8.3-8.9-14-16.9-17.3-8-3.3-16.1-3.3-24.3 0-35.7 14.6-67.3 35.6-94.8 63-27.4 27.4-48.5 59-63 94.8-3.3 8.3-3.3 16.4 0 24.3 3.3 8 9.1 13.6 17.3 16.9 4.3 1.7 8.3 2.5 11.9 2.5 13.9 0 23.8-6.6 29.8-19.8 11.3-27.8 27.6-52.4 48.9-73.7 21.3-21.3 45.9-37.7 73.7-48.9 8.3-3.6 14-9.4 17.3-17.3 3.3-8 3.3-16.1 0.1-24.5z m467.5-176.7l22.8 22.8-121 120.6 33.7 33.7c6.3 6.3 9.4 13.8 9.4 22.6s-3.1 16.3-9.4 22.6l-31.8 31.8c29.4 53.3 44.2 110 44.2 170.3 0 47.3-9.2 92.6-27.6 135.8-18.4 43.2-43.2 80.4-74.5 111.7-31.3 31.3-68.5 56.1-111.7 74.5s-88.5 27.6-135.8 27.6c-47.3 0-92.6-9.2-135.8-27.6-43.2-18.4-80.4-43.2-111.7-74.5-31.3-31.3-56.1-68.5-74.5-111.7s-27.6-88.5-27.6-135.8c0-47.3 9.2-92.6 27.6-135.8 18.4-43.2 43.2-80.4 74.5-111.7 31.3-31.3 68.5-56.1 111.7-74.5s88.5-27.6 135.8-27.6c60.2 0 117 14.7 170.3 44.2l31.8-31.8c6.3-6.3 13.8-9.4 22.6-9.4s16.3 3.1 22.6 9.4l33.7 33.7 120.7-120.9z m4.1-27.8c-3.3 3.3-6.9 5-10.9 5-4.3 0-8.1-1.7-11.4-5L755 109.3c-3-3.3-4.4-7.1-4.4-11.4 0-4.3 1.5-8.1 4.4-11.4 3.3-3 7.1-4.4 11.4-4.4s8.1 1.5 11.4 4.4l44.7 45.2c3.3 3 5 6.7 5 11.2-0.1 4.4-1.7 8.2-5 11.1z m114.1 114.2c-3.6 3-7.5 4.4-11.4 4.4s-7.8-1.5-11.4-4.4L869.1 223c-3.3-3-5-6.7-5-11.2 0-4.5 1.6-8.2 5-11.2 3-3.3 6.7-5 11.2-5 4.5 0 8.2 1.7 11.2 5l45.2 44.7c3 3.3 4.4 7.1 4.4 11.4 0 4.4-1.5 8.2-4.5 11.5z m20.4-90.9c0 4.6-1.5 8.4-4.4 11.4-3 3-6.8 4.5-11.4 4.4h-47.7c-4.6 0-8.4-1.5-11.4-4.4-3-3-4.5-6.8-4.4-11.4 0-4.7 1.5-8.5 4.4-11.4 2.9-3 6.7-4.4 11.4-4.4h47.7c4.6 0 8.4 1.5 11.4 4.4 2.9 3 4.4 6.8 4.4 11.4zM861.7 82v47.7c0 4.6-1.5 8.4-4.4 11.4-3 3-6.8 4.5-11.4 4.4-4.7 0-8.5-1.5-11.4-4.4-3-2.9-4.4-6.7-4.4-11.4V82c0-4.6 1.5-8.4 4.4-11.4 3-3 6.8-4.5 11.4-4.4 4.7 0 8.5 1.5 11.4 4.4 2.9 2.9 4.4 6.7 4.4 11.4z m74.9 27.4L891.5 154c-3.3 3.3-6.9 5-10.9 5-4.3 0-8.1-1.7-11.4-5-3.3-3-5-6.7-5-11.2 0-4.5 1.6-8.2 5-11.2l44.7-45.2c3.3-3 7.1-4.4 11.4-4.4 4.3 0 8.1 1.5 11.4 4.4 3 3.3 4.4 7.1 4.4 11.4 0 4.4-1.5 8.3-4.5 11.6z m0 0" fill="#FFA500" ></path></symbol><symbol id="icon-naozhong" viewBox="0 0 1024 1024"><path d="M571.653 61.974v179.8h-128.1v-179.8z" fill="#F65064" ></path><path d="M507.6 612.1m-396.3 0a396.3 396.3 0 1 0 792.6 0 396.3 396.3 0 1 0-792.6 0Z" fill="#F65064" ></path><path d="M507.6 612.1m-57.1 0a57.1 57.1 0 1 0 114.2 0 57.1 57.1 0 1 0-114.2 0Z" fill="#62B5F9" ></path><path d="M677.6 596.4h-99c-7.2-32.6-36.2-57.1-70.9-57.1-13.6 0-26.2 4-37.1 10.5l-152-161.5c-5.9-6.3-15.8-6.6-22.1-0.7-6.3 5.9-6.6 15.8-0.7 22.1L447.7 571c-8 11.7-12.7 25.8-12.7 41 0 40.1 32.6 72.7 72.7 72.7 34.7 0 63.7-24.5 70.9-57.1h99c8.6 0 15.7-7 15.7-15.7 0-8.5-7.1-15.5-15.7-15.5z m-170 57.1c-22.8 0-41.4-18.6-41.4-41.4s18.6-41.4 41.4-41.4 41.4 18.6 41.4 41.4-18.5 41.4-41.4 41.4z" fill="#272A3B" ></path><path d="M271.8 15.7h471.7v128.1H271.8z" fill="#62B5F9" ></path><path d="M928.2 393.9c0.5-4.1-0.7-8.3-3.3-11.5l-80-100.1c-5.4-6.8-15.2-7.8-22-2.5L786.4 309c-54.8-50.4-123.2-86.2-199-101.1v-48.5h156.1c8.6 0 15.7-7 15.7-15.7v-128c0-8.6-7-15.7-15.7-15.7H271.8c-8.6 0-15.7 7-15.7 15.7v128.1c0 8.6 7 15.7 15.7 15.7h156.1V208C238.8 245.2 95.7 412.2 95.7 612.1c0 227.1 184.8 411.9 411.9 411.9s411.9-184.8 411.9-411.9c0-62.3-14-121.4-38.8-174.4l41.7-33.3c3.3-2.6 5.3-6.4 5.8-10.5zM287.5 31.3h440.4v96.8H287.5V31.3z m171.7 128.1H556v43.7c-15.9-1.9-32-2.9-48.4-2.9s-32.5 1.1-48.4 2.9v-43.7z m48.4 833.3C297.8 992.7 127 821.9 127 612.1s170.7-380.6 380.6-380.6 380.6 170.7 380.6 380.6-170.7 380.6-380.6 380.6zM866 409.4c-16-28.3-35.3-54.5-57.3-78.1l21.5-17.2 60.4 75.6-24.6 19.7z" fill="#272A3B" ></path></symbol><symbol id="icon-dilei" viewBox="0 0 1024 1024"><path d="M832.53333334 245.76c27.3066667-47.57333333 19.52000001-105.81333333-15.36000003-144.42666667 33.92-13.86666667 68.05333332-21.12 99.73333336-20.16000001 12.79999999 0.42666666 23.57333334-9.70666668 24.00000001-22.61333331 0.42666666-12.90666668-9.70666668-23.68-22.61333336-24.00000001C872.00000001 33.17333332 821.65333334 46.18666665 773.33333333 70.40000001c-56.00000001-23.46666667-121.92000001-2.13333333-153.06666667 52.16l-8.95999998 15.57333333C431.57333332 94.93333333 237.65333332 172.90666671 140.47999999 342.18666668c-118.4 206.40000001-48.10666669 470.4 157.12000001 589.54666666 205.12000003 119.25333333 467.41333333 48.42666667 585.92000001-157.97333334 97.17333334-169.38666667 67.2-377.28000001-59.84000002-512.42666666l8.85333333-15.57333334z" fill="#211D1D" ></path></symbol></svg>',
-      e = (t = document.getElementsByTagName("script"))[t.length - 1].getAttribute("data-injectcss");if (e && !a.__iconfont__svg__cssinject__) {
-    a.__iconfont__svg__cssinject__ = !0;try {
-      document.write("<style>.svgfont {display: inline-block;width: 1em;height: 1em;fill: currentColor;vertical-align: -0.1em;font-size:16px;}</style>");
-    } catch (t) {
-      console && console.log(t);
-    }
-  }!function (t) {
-    if (document.addEventListener) {
-      if (~["complete", "loaded", "interactive"].indexOf(document.readyState)) setTimeout(t, 0);else {
-        var e = function e() {
-          document.removeEventListener("DOMContentLoaded", e, !1), t();
-        };document.addEventListener("DOMContentLoaded", e, !1);
-      }
-    } else document.attachEvent && (c = t, n = a.document, i = !1, l = function l() {
-      i || (i = !0, c());
-    }, (_o = function o() {
-      try {
-        n.documentElement.doScroll("left");
-      } catch (t) {
-        return void setTimeout(_o, 50);
-      }l();
-    })(), n.onreadystatechange = function () {
-      "complete" == n.readyState && (n.onreadystatechange = null, l());
-    });var c, n, i, l, _o;
-  }(function () {
-    var t, e;(t = document.createElement("div")).innerHTML = c, c = null, (e = t.getElementsByTagName("svg")[0]) && (e.setAttribute("aria-hidden", "true"), e.style.position = "absolute", e.style.width = 0, e.style.height = 0, e.style.overflow = "hidden", function (t, e) {
-      e.firstChild ? function (t, e) {
-        e.parentNode.insertBefore(t, e);
-      }(t, e.firstChild) : e.appendChild(t);
-    }(e, document.body));
-  });
-}(window);
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
@@ -11980,6 +11937,49 @@ function updateLink (link, options, obj) {
 	if(oldSrc) URL.revokeObjectURL(oldSrc);
 }
 
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+!function (a) {
+  var t,
+      c = '<svg><symbol id="icon-hongqi" viewBox="0 0 1024 1024"><path d="M326.855768 804.808836c0 31.908734-20.273742 58.014298-45.051055 58.014298-24.778336 0-45.052079-26.106588-45.052079-58.014298L236.752634 221.766826c0-31.907711 20.273742-58.014298 45.052079-58.014298 24.778336 0 45.051055 26.106588 45.051055 58.014298L326.855768 804.808836z" fill="#d81e06" ></path><path d="M835.080791 470.304366c-37.894052 7.330966-187.873901 59.688427-214.18822 53.676503s4.813632-52.572356-64.054875-52.572356c-89.13918 0-172.729993 30.229488-172.729993 30.229488s-32.061207 17.696034-32.061207-30.229488 0-158.100808 0-203.12628 40.396035-62.850443 40.396035-62.850443 60.931744-31.293727 164.765601-31.293727c66.248843 0.255827 32.777521 43.745317 63.684438 51.037397 30.903847 7.291057 195.700147-42.110073 195.700147-42.110073 48.570205-8.927323 58.31515-1.252527 58.31515 53.495378 0 0 0 157.589155 0 178.055279S872.980983 462.9734 835.080791 470.304366z" fill="#d81e06" ></path></symbol><symbol id="icon-dilei1" viewBox="0 0 1024 1024"><path d="M350.9 358.5c-3.3-8.3-8.9-14-16.9-17.3-8-3.3-16.1-3.3-24.3 0-35.7 14.6-67.3 35.6-94.8 63-27.4 27.4-48.5 59-63 94.8-3.3 8.3-3.3 16.4 0 24.3 3.3 8 9.1 13.6 17.3 16.9 4.3 1.7 8.3 2.5 11.9 2.5 13.9 0 23.8-6.6 29.8-19.8 11.3-27.8 27.6-52.4 48.9-73.7 21.3-21.3 45.9-37.7 73.7-48.9 8.3-3.6 14-9.4 17.3-17.3 3.3-8 3.3-16.1 0.1-24.5z m467.5-176.7l22.8 22.8-121 120.6 33.7 33.7c6.3 6.3 9.4 13.8 9.4 22.6s-3.1 16.3-9.4 22.6l-31.8 31.8c29.4 53.3 44.2 110 44.2 170.3 0 47.3-9.2 92.6-27.6 135.8-18.4 43.2-43.2 80.4-74.5 111.7-31.3 31.3-68.5 56.1-111.7 74.5s-88.5 27.6-135.8 27.6c-47.3 0-92.6-9.2-135.8-27.6-43.2-18.4-80.4-43.2-111.7-74.5-31.3-31.3-56.1-68.5-74.5-111.7s-27.6-88.5-27.6-135.8c0-47.3 9.2-92.6 27.6-135.8 18.4-43.2 43.2-80.4 74.5-111.7 31.3-31.3 68.5-56.1 111.7-74.5s88.5-27.6 135.8-27.6c60.2 0 117 14.7 170.3 44.2l31.8-31.8c6.3-6.3 13.8-9.4 22.6-9.4s16.3 3.1 22.6 9.4l33.7 33.7 120.7-120.9z m4.1-27.8c-3.3 3.3-6.9 5-10.9 5-4.3 0-8.1-1.7-11.4-5L755 109.3c-3-3.3-4.4-7.1-4.4-11.4 0-4.3 1.5-8.1 4.4-11.4 3.3-3 7.1-4.4 11.4-4.4s8.1 1.5 11.4 4.4l44.7 45.2c3.3 3 5 6.7 5 11.2-0.1 4.4-1.7 8.2-5 11.1z m114.1 114.2c-3.6 3-7.5 4.4-11.4 4.4s-7.8-1.5-11.4-4.4L869.1 223c-3.3-3-5-6.7-5-11.2 0-4.5 1.6-8.2 5-11.2 3-3.3 6.7-5 11.2-5 4.5 0 8.2 1.7 11.2 5l45.2 44.7c3 3.3 4.4 7.1 4.4 11.4 0 4.4-1.5 8.2-4.5 11.5z m20.4-90.9c0 4.6-1.5 8.4-4.4 11.4-3 3-6.8 4.5-11.4 4.4h-47.7c-4.6 0-8.4-1.5-11.4-4.4-3-3-4.5-6.8-4.4-11.4 0-4.7 1.5-8.5 4.4-11.4 2.9-3 6.7-4.4 11.4-4.4h47.7c4.6 0 8.4 1.5 11.4 4.4 2.9 3 4.4 6.8 4.4 11.4zM861.7 82v47.7c0 4.6-1.5 8.4-4.4 11.4-3 3-6.8 4.5-11.4 4.4-4.7 0-8.5-1.5-11.4-4.4-3-2.9-4.4-6.7-4.4-11.4V82c0-4.6 1.5-8.4 4.4-11.4 3-3 6.8-4.5 11.4-4.4 4.7 0 8.5 1.5 11.4 4.4 2.9 2.9 4.4 6.7 4.4 11.4z m74.9 27.4L891.5 154c-3.3 3.3-6.9 5-10.9 5-4.3 0-8.1-1.7-11.4-5-3.3-3-5-6.7-5-11.2 0-4.5 1.6-8.2 5-11.2l44.7-45.2c3.3-3 7.1-4.4 11.4-4.4 4.3 0 8.1 1.5 11.4 4.4 3 3.3 4.4 7.1 4.4 11.4 0 4.4-1.5 8.3-4.5 11.6z m0 0" fill="#FFA500" ></path></symbol><symbol id="icon-naozhong" viewBox="0 0 1024 1024"><path d="M571.653 61.974v179.8h-128.1v-179.8z" fill="#F65064" ></path><path d="M507.6 612.1m-396.3 0a396.3 396.3 0 1 0 792.6 0 396.3 396.3 0 1 0-792.6 0Z" fill="#F65064" ></path><path d="M507.6 612.1m-57.1 0a57.1 57.1 0 1 0 114.2 0 57.1 57.1 0 1 0-114.2 0Z" fill="#62B5F9" ></path><path d="M677.6 596.4h-99c-7.2-32.6-36.2-57.1-70.9-57.1-13.6 0-26.2 4-37.1 10.5l-152-161.5c-5.9-6.3-15.8-6.6-22.1-0.7-6.3 5.9-6.6 15.8-0.7 22.1L447.7 571c-8 11.7-12.7 25.8-12.7 41 0 40.1 32.6 72.7 72.7 72.7 34.7 0 63.7-24.5 70.9-57.1h99c8.6 0 15.7-7 15.7-15.7 0-8.5-7.1-15.5-15.7-15.5z m-170 57.1c-22.8 0-41.4-18.6-41.4-41.4s18.6-41.4 41.4-41.4 41.4 18.6 41.4 41.4-18.5 41.4-41.4 41.4z" fill="#272A3B" ></path><path d="M271.8 15.7h471.7v128.1H271.8z" fill="#62B5F9" ></path><path d="M928.2 393.9c0.5-4.1-0.7-8.3-3.3-11.5l-80-100.1c-5.4-6.8-15.2-7.8-22-2.5L786.4 309c-54.8-50.4-123.2-86.2-199-101.1v-48.5h156.1c8.6 0 15.7-7 15.7-15.7v-128c0-8.6-7-15.7-15.7-15.7H271.8c-8.6 0-15.7 7-15.7 15.7v128.1c0 8.6 7 15.7 15.7 15.7h156.1V208C238.8 245.2 95.7 412.2 95.7 612.1c0 227.1 184.8 411.9 411.9 411.9s411.9-184.8 411.9-411.9c0-62.3-14-121.4-38.8-174.4l41.7-33.3c3.3-2.6 5.3-6.4 5.8-10.5zM287.5 31.3h440.4v96.8H287.5V31.3z m171.7 128.1H556v43.7c-15.9-1.9-32-2.9-48.4-2.9s-32.5 1.1-48.4 2.9v-43.7z m48.4 833.3C297.8 992.7 127 821.9 127 612.1s170.7-380.6 380.6-380.6 380.6 170.7 380.6 380.6-170.7 380.6-380.6 380.6zM866 409.4c-16-28.3-35.3-54.5-57.3-78.1l21.5-17.2 60.4 75.6-24.6 19.7z" fill="#272A3B" ></path></symbol><symbol id="icon-dilei" viewBox="0 0 1024 1024"><path d="M832.53333334 245.76c27.3066667-47.57333333 19.52000001-105.81333333-15.36000003-144.42666667 33.92-13.86666667 68.05333332-21.12 99.73333336-20.16000001 12.79999999 0.42666666 23.57333334-9.70666668 24.00000001-22.61333331 0.42666666-12.90666668-9.70666668-23.68-22.61333336-24.00000001C872.00000001 33.17333332 821.65333334 46.18666665 773.33333333 70.40000001c-56.00000001-23.46666667-121.92000001-2.13333333-153.06666667 52.16l-8.95999998 15.57333333C431.57333332 94.93333333 237.65333332 172.90666671 140.47999999 342.18666668c-118.4 206.40000001-48.10666669 470.4 157.12000001 589.54666666 205.12000003 119.25333333 467.41333333 48.42666667 585.92000001-157.97333334 97.17333334-169.38666667 67.2-377.28000001-59.84000002-512.42666666l8.85333333-15.57333334z" fill="#211D1D" ></path></symbol></svg>',
+      e = (t = document.getElementsByTagName("script"))[t.length - 1].getAttribute("data-injectcss");if (e && !a.__iconfont__svg__cssinject__) {
+    a.__iconfont__svg__cssinject__ = !0;try {
+      document.write("<style>.svgfont {display: inline-block;width: 1em;height: 1em;fill: currentColor;vertical-align: -0.1em;font-size:16px;}</style>");
+    } catch (t) {
+      console && console.log(t);
+    }
+  }!function (t) {
+    if (document.addEventListener) {
+      if (~["complete", "loaded", "interactive"].indexOf(document.readyState)) setTimeout(t, 0);else {
+        var e = function e() {
+          document.removeEventListener("DOMContentLoaded", e, !1), t();
+        };document.addEventListener("DOMContentLoaded", e, !1);
+      }
+    } else document.attachEvent && (c = t, n = a.document, i = !1, l = function l() {
+      i || (i = !0, c());
+    }, (_o = function o() {
+      try {
+        n.documentElement.doScroll("left");
+      } catch (t) {
+        return void setTimeout(_o, 50);
+      }l();
+    })(), n.onreadystatechange = function () {
+      "complete" == n.readyState && (n.onreadystatechange = null, l());
+    });var c, n, i, l, _o;
+  }(function () {
+    var t, e;(t = document.createElement("div")).innerHTML = c, c = null, (e = t.getElementsByTagName("svg")[0]) && (e.setAttribute("aria-hidden", "true"), e.style.position = "absolute", e.style.width = 0, e.style.height = 0, e.style.overflow = "hidden", function (t, e) {
+      e.firstChild ? function (t, e) {
+        e.parentNode.insertBefore(t, e);
+      }(t, e.firstChild) : e.appendChild(t);
+    }(e, document.body));
+  });
+}(window);
 
 /***/ }),
 /* 8 */
@@ -24260,7 +24260,7 @@ var _jquery = __webpack_require__(5);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-__webpack_require__(6);
+__webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24311,14 +24311,14 @@ exports.default = {
   data: function data() {
     return {
       count: 10,
-      mineCount: 20,
+      mineCount: 18,
       arr: [],
       isActive: false,
       end: false,
       time: 0,
       timer: "",
       start: false,
-      remainder_mine: 20,
+      remainder_mine: 18,
       open_number: 0
     };
   },
@@ -24337,7 +24337,6 @@ exports.default = {
       }, 1000);
     },
     red_flag: function red_flag(i, j) {
-      console.log(i, j);
       if (this.arr[i][j].red_flag) {
         this.remainder_mine++;
       } else {
@@ -24449,7 +24448,7 @@ var _jquery = __webpack_require__(5);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-__webpack_require__(6);
+__webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24499,14 +24498,14 @@ exports.default = {
   data: function data() {
     return {
       count: 16,
-      mineCount: 80,
+      mineCount: 50,
       arr: [],
       isActive: false,
       end: false,
       time: 0,
       timer: "",
       start: false,
-      remainder_mine: 80,
+      remainder_mine: 50,
       open_number: 0
     };
   },
@@ -24639,7 +24638,7 @@ var _jquery = __webpack_require__(5);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-__webpack_require__(6);
+__webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24816,6 +24815,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _style = __webpack_require__(3);
+
+var _style2 = _interopRequireDefault(_style);
+
+var _toast = __webpack_require__(4);
+
+var _toast2 = _interopRequireDefault(_toast);
+
 var _jquery = __webpack_require__(5);
 
 var _jquery2 = _interopRequireDefault(_jquery);
@@ -24826,6 +24833,23 @@ var _img2 = _interopRequireDefault(_img);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -24862,25 +24886,93 @@ exports.default = {
       dragging: false,
       i: -1,
       j: -1,
-      width: 0
+      width: 0,
+      arr: [],
+      n: -1,
+      get: 0,
+      fapai: false,
+      diffculty: 0
     };
   },
   created: function created() {
-    this.getNumber();
+    this.getNumber(2);
   },
   mounted: function mounted() {
     this.width = (0, _jquery2.default)(".column").css("width");
-    console.log(this.imgs);
   },
 
   methods: {
-    change: function change() {
-      console.log(this.obj[0][0]);
+    toOnly: function toOnly() {
+      this.getNumber(0);
+      this.obj[0].push();
+    },
+    toDouble: function toDouble() {
+      this.getNumber(1);
 
-      this.$set(this.obj[0][0], 'index', 8);
-      console.log(this.obj[0][0]);
+      this.obj[0].push();
+    },
+    toFour: function toFour() {
+      this.getNumber(2);
+      this.obj[0].push();
+    },
+    reStart: function reStart() {
+      console.log("重新开始");
+      this.getNumber(this.diffculty);
+      this.n = -1;
+      this.get = 0;
+      this.obj[0].push();
+    },
+
+    //控制发牌动画
+    beforeEnter: function beforeEnter(el) {
+      el.style.transform = "translate(10px,20px)";
+    },
+    enter: function enter(el, done) {
+      el.offsetWidth;
+      el.style.transform = "translate(0px,0px)";
+      el.style.transition = "all .2s cubic-bezier(.67,-0.43,.77,.68)";
+      done();
+    },
+    afterEnter: function afterEnter(el) {
+      this.fapai = false;
+    },
+    judge: function judge(i) {
+      //判断是否能消掉
+      var length = this.obj[i].length;
+      if (this.obj[i][length - 1].number != 1) {
+        return;
+      }
+      var color = this.obj[i][length - 1].color;
+      for (var m = length - 1, n = 1; m > -1; m--, n++) {
+        if (this.obj[i][m].number != n || this.obj[i][m].color != color) return;
+        if (n === 13) {
+          this.obj[i].splice(m);
+          this.get++;
+          if (this.get === 8) {
+            (0, _toast2.default)("恭喜通关");
+          }
+        }
+      }
+    },
+    deal: function deal() {
+      //发牌
+      this.fapai = true;
+      for (var i = 0; i < 10; i++) {
+        var index = this.arr[++this.n].index;
+        var number = this.arr[this.n].number;
+        var color = this.arr[this.n].color;
+        this.obj[i].push({ isOpen: true, index: index, number: number, color: color });
+        this.judge(i);
+      }
     },
     mousedown: function mousedown(el, i, j) {
+      if (!this.obj[i][j].isOpen) return;
+      for (var m = j; m < this.obj[i].length - 2; m++) {
+        if (this.obj[i][m].number != this.obj[i][m + 1].number + 1) {
+          console.log("移动的元素不合法");
+          return;
+        }
+      }
       this.i = i;
       this.j = j;
       this.dragging = true;
@@ -24889,28 +24981,89 @@ exports.default = {
     },
     mouseup: function mouseup(el) {
       if (!this.dragging) return;
-      console.log("拖完了");
-      console.log(this.width);
       var x = el.pageX;
       //判断移动到了 index
       var index = Math.floor((x - (0, _jquery2.default)("#card_container").offset().left) / parseInt(this.width));
-      console.log(index);
       this.dragging = false;
       //apply方法
+      if (index === this.i || this.obj[index][this.obj[index].length - 1].number != this.obj[this.i][this.j].number + 1) {
+        console.log("目标元素不合法");
+        (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ left: 0 + "px", top: 0 + "px" });
+        return;
+      }
+      this.$set(this.obj[this.i][this.j - 1], "isOpen", true);
       this.obj[index].push.apply(this.obj[index], this.obj[this.i].splice(this.j));
+      (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ left: 0 + "px", top: 0 + "px" });
+      this.judge(index);
     },
     mousemove: function mousemove(el) {
       if (!this.dragging) return;
       var deltX = el.pageX - this.x;
       var deltY = el.pageY - this.y;
-      console.log(this.i, this.j);
       (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ left: deltX + "px", top: deltY + "px" });
-      // console.log(deltX, deltY);
     },
-    getNumber: function getNumber() {
-      for (var i = 0; i < this.count; i++) {
-        for (var j = 0; j < this.count; j++) {
-          this.obj[i][j] = { isOpen: false, index: j + 1 };
+    getNumber: function getNumber(xxx) {
+      //定义一个数组
+      this.arr = [];
+      this.diffculty = 1;
+      this.n = -1;
+      this.get = 0;
+      if (xxx === 0) {
+        for (var k = 1; k < 105; k++) {
+          this.arr.push({
+            color: 0,
+            number: k % 13 ? k % 13 : 13,
+            index: k % 13 ? k % 13 : 13
+          });
+        }
+      } else if (xxx === 1) {
+
+        for (var _k = 1; _k < 105; _k++) {
+          this.arr.push({
+            color: parseInt(_k / 53),
+            number: _k % 13 ? _k % 13 : 13,
+            index: _k % 27 ? _k % 27 : 27
+          });
+        }
+      } else {
+        for (var _k2 = 1; _k2 < 105; _k2++) {
+          this.arr.push({
+            color: parseInt(_k2 / 27),
+            number: _k2 % 13 ? _k2 % 13 : 13,
+            index: _k2 % 52 ? _k2 % 52 : 52
+          });
+        }
+      }
+      //洗牌算法
+      for (var _k3 = 0; _k3 < 104; _k3++) {
+        var index = Math.floor(Math.random() * 104);
+        var change = this.arr[index];
+        this.arr[index] = this.arr[_k3];
+        this.arr[_k3] = change;
+      }
+      for (var i = 0; i < 10; i++) {
+        if (i < 4) {
+          for (var j = 0; j < 5; j++) {
+            var _index2 = this.arr[++this.n].index;
+            var _number = this.arr[this.n].number;
+            var _color = this.arr[this.n].color;
+            this.obj[i][j] = { isOpen: false, index: _index2, number: _number, color: _color };
+          }
+          var _index = this.arr[++this.n].index;
+          var number = this.arr[this.n].number;
+          var color = this.arr[this.n].color;
+          this.obj[i][5] = { isOpen: true, index: _index, number: number, color: color };
+        } else {
+          for (var _j = 0; _j < 4; _j++) {
+            var _index4 = this.arr[++this.n].index;
+            var _number3 = this.arr[this.n].number;
+            var _color3 = this.arr[this.n].color;
+            this.obj[i][_j] = { isOpen: false, index: _index4, number: _number3, color: _color3 };
+          }
+          var _index3 = this.arr[++this.n].index;
+          var _number2 = this.arr[this.n].number;
+          var _color2 = this.arr[this.n].color;
+          this.obj[i][4] = { isOpen: true, index: _index3, number: _number2, color: _color2 };
         }
       }
     }
@@ -24940,7 +25093,7 @@ var _jquery = __webpack_require__(5);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-__webpack_require__(6);
+__webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25127,6 +25280,8 @@ var _router = __webpack_require__(33);
 
 var _router2 = _interopRequireDefault(_router);
 
+__webpack_require__(60);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.config.productionTip = false;
@@ -25156,7 +25311,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -25646,7 +25801,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(6)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -29038,7 +29193,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n*[data-v-77e5ad04] {\n  box-sizing: border-box;\n  margin: 0;\n}\n#mineSweep_container[data-v-77e5ad04] {\n  text-align: center;\n}\n#mineSweep_container .mineSweep_header[data-v-77e5ad04] {\n  width: 500px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n#mineSweep_container .mineSweep_header span[data-v-77e5ad04] {\n  width: 200px;\n  font-size: 20px;\n}\n#mineSweep_container .mineSweep_header button[data-v-77e5ad04] {\n  height: 25px;\n}\n#mineSweep_container .body[data-v-77e5ad04] {\n  border: 2px solid #aaaaaa;\n  margin: 10px auto;\n  background: #aaaaaa;\n  width: 500px;\n  height: 500px;\n  display: grid;\n  grid-template-rows: repeat(10, 1fr);\n  grid-row-gap: 3px;\n}\n#mineSweep_container .body .rows[data-v-77e5ad04] {\n  display: grid;\n  grid-template-columns: repeat(10, 1fr);\n  grid-column-gap: 3px;\n}\n#mineSweep_container .body .rows .item[data-v-77e5ad04] {\n  border-top: 2px solid #fff;\n  border-left: 2px solid #fff;\n  background: #c4c4c4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n}\n#mineSweep_container .body .rows .item #red_flag[data-v-77e5ad04] {\n  display: none;\n  position: absolute;\n}\n#mineSweep_container .body .rows .item.open[data-v-77e5ad04] {\n  background: #fff;\n}\n#mineSweep_container .body .rows .item.red_flag #red_flag[data-v-77e5ad04] {\n  display: block;\n}\n#mineSweep_container .body .rows .item svg[data-v-77e5ad04] {\n  width: 30px;\n  height: 30px;\n}\n#mineSweep_container svg[data-v-77e5ad04] {\n  width: 20px;\n  height: 20px;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-77e5ad04] {\n  box-sizing: border-box;\n  margin: 0;\n}\n#mineSweep_container[data-v-77e5ad04] {\n  text-align: center;\n}\n#mineSweep_container .mineSweep_header[data-v-77e5ad04] {\n  width: 500px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n#mineSweep_container .mineSweep_header span[data-v-77e5ad04] {\n  width: 200px;\n  font-size: 20px;\n}\n#mineSweep_container .mineSweep_header button[data-v-77e5ad04] {\n  height: 25px;\n}\n#mineSweep_container .body[data-v-77e5ad04] {\n  border: 2px solid #aaaaaa;\n  margin: 10px auto;\n  background: #aaaaaa;\n  width: 500px;\n  height: 500px;\n  display: grid;\n  grid-template-rows: repeat(10, 1fr);\n  grid-row-gap: 3px;\n}\n#mineSweep_container .body .rows[data-v-77e5ad04] {\n  display: grid;\n  grid-template-columns: repeat(10, 1fr);\n  grid-column-gap: 3px;\n}\n#mineSweep_container .body .rows .item[data-v-77e5ad04] {\n  border-top: 2px solid #fff;\n  border-left: 2px solid #fff;\n  background: #c4c4c4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n}\n#mineSweep_container .body .rows .item .itemContent[data-v-77e5ad04] {\n  position: absolute;\n}\n#mineSweep_container .body .rows .item #red_flag[data-v-77e5ad04] {\n  display: none;\n  position: absolute;\n}\n#mineSweep_container .body .rows .item.open[data-v-77e5ad04] {\n  background: #fff;\n}\n#mineSweep_container .body .rows .item.red_flag #red_flag[data-v-77e5ad04] {\n  display: block;\n}\n#mineSweep_container .body .rows .item svg[data-v-77e5ad04] {\n  width: 30px;\n  height: 30px;\n}\n#mineSweep_container svg[data-v-77e5ad04] {\n  width: 20px;\n  height: 20px;\n}\n", ""]);
 
 // exports
 
@@ -29282,7 +29437,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n*[data-v-068c0b1e] {\n  box-sizing: border-box;\n  margin: 0;\n}\n#mineSweep_container[data-v-068c0b1e] {\n  text-align: center;\n}\n#mineSweep_container .mineSweep_header[data-v-068c0b1e] {\n  width: 500px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n#mineSweep_container .mineSweep_header span[data-v-068c0b1e] {\n  width: 200px;\n  font-size: 20px;\n}\n#mineSweep_container .mineSweep_header button[data-v-068c0b1e] {\n  height: 25px;\n}\n#mineSweep_container .body[data-v-068c0b1e] {\n  border: 2px solid #aaaaaa;\n  margin: 10px auto;\n  background: #aaaaaa;\n  width: 600px;\n  height: 600px;\n  display: grid;\n  grid-template-rows: repeat(16, 1fr);\n  grid-row-gap: 3px;\n}\n#mineSweep_container .body .rows[data-v-068c0b1e] {\n  display: grid;\n  grid-template-columns: repeat(16, 1fr);\n  grid-column-gap: 3px;\n}\n#mineSweep_container .body .rows .item[data-v-068c0b1e] {\n  border-top: 2px solid #fff;\n  border-left: 2px solid #fff;\n  background: #c4c4c4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n}\n#mineSweep_container .body .rows .item #red_flag[data-v-068c0b1e] {\n  display: none;\n  position: absolute;\n}\n#mineSweep_container .body .rows .item.open[data-v-068c0b1e] {\n  background: #fff;\n}\n#mineSweep_container .body .rows .item.red_flag #red_flag[data-v-068c0b1e] {\n  display: block;\n}\n#mineSweep_container .body .rows .item svg[data-v-068c0b1e] {\n  width: 30px;\n  height: 30px;\n}\n#mineSweep_container svg[data-v-068c0b1e] {\n  width: 20px;\n  height: 20px;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-068c0b1e] {\n  box-sizing: border-box;\n  margin: 0;\n}\n#mineSweep_container[data-v-068c0b1e] {\n  text-align: center;\n}\n#mineSweep_container .mineSweep_header[data-v-068c0b1e] {\n  width: 500px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n#mineSweep_container .mineSweep_header span[data-v-068c0b1e] {\n  width: 200px;\n  font-size: 20px;\n}\n#mineSweep_container .mineSweep_header button[data-v-068c0b1e] {\n  height: 25px;\n}\n#mineSweep_container .body[data-v-068c0b1e] {\n  border: 2px solid #aaaaaa;\n  margin: 10px auto;\n  background: #aaaaaa;\n  width: 600px;\n  height: 600px;\n  display: grid;\n  grid-template-rows: repeat(16, 1fr);\n  grid-row-gap: 3px;\n}\n#mineSweep_container .body .rows[data-v-068c0b1e] {\n  display: grid;\n  grid-template-columns: repeat(16, 1fr);\n  grid-column-gap: 3px;\n}\n#mineSweep_container .body .rows .item[data-v-068c0b1e] {\n  border-top: 2px solid #fff;\n  border-left: 2px solid #fff;\n  background: #c4c4c4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n}\n#mineSweep_container .body .rows .item .itemContent[data-v-068c0b1e] {\n  position: absolute;\n}\n#mineSweep_container .body .rows .item #red_flag[data-v-068c0b1e] {\n  display: none;\n  position: absolute;\n}\n#mineSweep_container .body .rows .item.open[data-v-068c0b1e] {\n  background: #fff;\n}\n#mineSweep_container .body .rows .item.red_flag #red_flag[data-v-068c0b1e] {\n  display: block;\n}\n#mineSweep_container .body .rows .item svg[data-v-068c0b1e] {\n  width: 30px;\n  height: 30px;\n}\n#mineSweep_container svg[data-v-068c0b1e] {\n  width: 20px;\n  height: 20px;\n}\n", ""]);
 
 // exports
 
@@ -29526,7 +29681,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n*[data-v-0e582c32] {\n  box-sizing: border-box;\n  margin: 0;\n}\n#mineSweep_container[data-v-0e582c32] {\n  text-align: center;\n}\n#mineSweep_container .mineSweep_header[data-v-0e582c32] {\n  width: 500px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n#mineSweep_container .mineSweep_header span[data-v-0e582c32] {\n  width: 200px;\n  font-size: 20px;\n}\n#mineSweep_container .mineSweep_header button[data-v-0e582c32] {\n  height: 25px;\n}\n#mineSweep_container .body[data-v-0e582c32] {\n  border: 2px solid #aaaaaa;\n  margin: 10px auto;\n  background: #aaaaaa;\n  width: 800px;\n  height: 800px;\n  display: grid;\n  grid-template-rows: repeat(25, 1fr);\n  grid-row-gap: 3px;\n}\n#mineSweep_container .body .rows[data-v-0e582c32] {\n  display: grid;\n  grid-template-columns: repeat(25, 1fr);\n  grid-column-gap: 3px;\n}\n#mineSweep_container .body .rows .item[data-v-0e582c32] {\n  width: 100%;\n  border-top: 2px solid #fff;\n  border-left: 2px solid #fff;\n  background: #c4c4c4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n}\n#mineSweep_container .body .rows .item #red_flag[data-v-0e582c32] {\n  display: none;\n  position: absolute;\n}\n#mineSweep_container .body .rows .item.open[data-v-0e582c32] {\n  background: #fff;\n}\n#mineSweep_container .body .rows .item.red_flag #red_flag[data-v-0e582c32] {\n  display: block;\n}\n#mineSweep_container .body .rows .item svg[data-v-0e582c32] {\n  width: 25px;\n  height: 25px;\n}\n#mineSweep_container svg[data-v-0e582c32] {\n  width: 20px;\n  height: 20px;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-0e582c32] {\n  box-sizing: border-box;\n  margin: 0;\n}\n#mineSweep_container[data-v-0e582c32] {\n  text-align: center;\n}\n#mineSweep_container .mineSweep_header[data-v-0e582c32] {\n  width: 500px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n}\n#mineSweep_container .mineSweep_header span[data-v-0e582c32] {\n  width: 200px;\n  font-size: 20px;\n}\n#mineSweep_container .mineSweep_header button[data-v-0e582c32] {\n  height: 25px;\n}\n#mineSweep_container .body[data-v-0e582c32] {\n  border: 2px solid #aaaaaa;\n  margin: 10px auto;\n  background: #aaaaaa;\n  width: 800px;\n  height: 800px;\n  display: grid;\n  grid-template-rows: repeat(25, 1fr);\n  grid-row-gap: 3px;\n}\n#mineSweep_container .body .rows[data-v-0e582c32] {\n  display: grid;\n  grid-template-columns: repeat(25, 1fr);\n  grid-column-gap: 3px;\n}\n#mineSweep_container .body .rows .item[data-v-0e582c32] {\n  width: 100%;\n  border-top: 2px solid #fff;\n  border-left: 2px solid #fff;\n  background: #c4c4c4;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n}\n#mineSweep_container .body .rows .item .itemContent[data-v-0e582c32] {\n  position: absolute;\n}\n#mineSweep_container .body .rows .item #red_flag[data-v-0e582c32] {\n  display: none;\n  position: absolute;\n}\n#mineSweep_container .body .rows .item.open[data-v-0e582c32] {\n  background: #fff;\n}\n#mineSweep_container .body .rows .item.red_flag #red_flag[data-v-0e582c32] {\n  display: block;\n}\n#mineSweep_container .body .rows .item svg[data-v-0e582c32] {\n  width: 25px;\n  height: 25px;\n}\n#mineSweep_container svg[data-v-0e582c32] {\n  width: 20px;\n  height: 20px;\n}\n", ""]);
 
 // exports
 
@@ -29841,7 +29996,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n*[data-v-7be81122] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n#card_container .body[data-v-7be81122] {\n  display: grid;\n  grid-template-columns: repeat(10, 10%);\n}\n#card_container .body .column .item[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .item.open[data-v-7be81122] {\n  background: blue;\n}\n#card_container .body .column .item .content[data-v-7be81122] {\n  height: 100%;\n  position: absolute;\n  border: 1px solid red;\n  left: 0;\n  top: 0;\n}\n#card_container .body .column .item .content img[data-v-7be81122] {\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-7be81122] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.v-enter[data-v-7be81122] {\n  opacity: 0;\n  transform: translateY(50px);\n}\n.v-enter-active[data-v-7be81122] {\n  transition: all 0.5s ease;\n}\n#card_container .body[data-v-7be81122] {\n  transition: all 3s linear;\n  display: grid;\n  width: 1100px;\n  grid-template-columns: repeat(10, 10%);\n}\n#card_container .body .column .box[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .box img[data-v-7be81122] {\n  width: 100px;\n  position: absolute;\n}\n#card_container .body .column .item[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .item .content[data-v-7be81122] {\n  height: 100%;\n  position: absolute;\n  border: 1px solid red;\n  left: 0;\n  top: 0;\n}\n#card_container .body .column .item .content img[data-v-7be81122] {\n  width: 100px;\n}\n#card_container .control[data-v-7be81122] {\n  position: fixed;\n  bottom: 0;\n  text-align: center;\n}\n#card_container .control img[data-v-7be81122] {\n  margin-right: 100px;\n  width: 100px;\n  height: 150px;\n}\n", ""]);
 
 // exports
 
@@ -29850,7 +30005,7 @@ exports.push([module.i, "\n*[data-v-7be81122] {\n  margin: 0;\n  padding: 0;\n  
 /* 54 */
 /***/ (function(module, exports) {
 
-module.exports = {"images":[{"src":"/static/images/1.jpg"},{"src":"/static/images/2.jpg"},{"src":"/static/images/3.jpg"},{"src":"/static/images/4.jpg"}]}
+module.exports = {"images":[{"src":"/static/images/1.jpg"},{"src":"/static/images/2.jpg"},{"src":"/static/images/3.jpg"},{"src":"/static/images/4.jpg"},{"src":"/static/images/5.jpg"},{"src":"/static/images/6.jpg"},{"src":"/static/images/7.jpg"},{"src":"/static/images/8.jpg"},{"src":"/static/images/9.jpg"},{"src":"/static/images/10.jpg"},{"src":"/static/images/11.jpg"},{"src":"/static/images/12.jpg"},{"src":"/static/images/13.jpg"},{"src":"/static/images/14.jpg"},{"src":"/static/images/15.jpg"},{"src":"/static/images/16.jpg"},{"src":"/static/images/17.jpg"},{"src":"/static/images/18.jpg"},{"src":"/static/images/19.jpg"},{"src":"/static/images/20.jpg"},{"src":"/static/images/21.jpg"},{"src":"/static/images/22.jpg"},{"src":"/static/images/23.jpg"},{"src":"/static/images/24.jpg"},{"src":"/static/images/25.jpg"},{"src":"/static/images/26.jpg"},{"src":"/static/images/27.jpg"},{"src":"/static/images/28.jpg"},{"src":"/static/images/29.jpg"},{"src":"/static/images/30.jpg"},{"src":"/static/images/31.jpg"},{"src":"/static/images/32.jpg"},{"src":"/static/images/33.jpg"},{"src":"/static/images/34.jpg"},{"src":"/static/images/35.jpg"},{"src":"/static/images/36.jpg"},{"src":"/static/images/37.jpg"},{"src":"/static/images/38.jpg"},{"src":"/static/images/39.jpg"},{"src":"/static/images/40.jpg"},{"src":"/static/images/41.jpg"},{"src":"/static/images/42.jpg"},{"src":"/static/images/43.jpg"},{"src":"/static/images/44.jpg"},{"src":"/static/images/45.jpg"},{"src":"/static/images/46.jpg"},{"src":"/static/images/47.jpg"},{"src":"/static/images/48.jpg"},{"src":"/static/images/49.jpg"},{"src":"/static/images/50.jpg"},{"src":"/static/images/51.jpg"},{"src":"/static/images/52.jpg"},{"src":"/static/images/bg.jpg"}]}
 
 /***/ }),
 /* 55 */
@@ -29864,48 +30019,117 @@ var render = function() {
   return _c("div", { attrs: { id: "card_container" } }, [
     _c(
       "div",
-      { staticClass: "body" },
+      { staticClass: "body animated flip" },
       _vm._l(_vm.obj, function(item, i) {
         return _c(
           "div",
           { key: i, staticClass: "column" },
-          _vm._l(item, function(jtem, j) {
-            return _c(
-              "div",
+          [
+            _c(
+              "transition-group",
               {
-                key: j,
-                staticClass: "item",
-                class: { open: jtem.isOpen },
-                attrs: { draggable: "true" },
-                on: {
-                  dragstart: function($event) {
-                    return _vm.mousedown($event, i, j)
-                  },
-                  dragover: function($event) {
-                    return _vm.mousemove($event, i, j)
-                  },
-                  dragend: function($event) {
-                    return _vm.mouseup($event)
-                  }
+                attrs: {
+                  appear: "",
+                  tag: "div",
+                  "leave-active-class": "bounceOut animated",
+                  duration: { leave: 200 }
                 }
               },
-              [
-                _c("div", { staticClass: "content" }, [
-                  _c("img", { attrs: { src: _vm.imgs[0].src } })
-                ])
-              ]
+              _vm._l(item, function(jtem, j) {
+                return _c(
+                  "div",
+                  {
+                    key: j,
+                    staticClass: "item",
+                    attrs: { draggable: "true" },
+                    on: {
+                      dragstart: function($event) {
+                        return _vm.mousedown($event, i, j)
+                      },
+                      dragover: function($event) {
+                        return _vm.mousemove($event, i, j)
+                      },
+                      dragend: function($event) {
+                        return _vm.mouseup($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "content" }, [
+                      !jtem.isOpen
+                        ? _c("img", {
+                            attrs: { src: _vm.imgs[52].src, alt: "" }
+                          })
+                        : _c("img", {
+                            attrs: { src: _vm.imgs[jtem.index - 1].src }
+                          })
+                    ])
+                  ]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.fapai,
+                    expression: "fapai"
+                  }
+                ],
+                staticClass: "box"
+              },
+              [_c("img", { attrs: { src: _vm.imgs[52].src, alt: "" } })]
             )
-          }),
-          0
+          ],
+          1
         )
       }),
       0
     ),
     _vm._v(" "),
     _c(
-      "button",
-      { staticStyle: { "margin-top": "50px" }, on: { click: _vm.change } },
-      [_vm._v("点我")]
+      "div",
+      { staticClass: "control" },
+      [
+        _c("img", {
+          ref: "start",
+          attrs: { src: _vm.imgs[52].src, alt: "" },
+          on: { click: _vm.deal }
+        }),
+        _vm._v(" "),
+        _c(
+          "mt-button",
+          { attrs: { type: "primary", plain: "" }, on: { click: _vm.reStart } },
+          [_vm._v("重新开始")]
+        ),
+        _vm._v(" "),
+        _c(
+          "mt-button",
+          { attrs: { type: "primary", plain: "" }, on: { click: _vm.toOnly } },
+          [_vm._v("单色")]
+        ),
+        _vm._v(" "),
+        _c(
+          "mt-button",
+          {
+            attrs: { type: "primary", plain: "" },
+            on: { click: _vm.toDouble }
+          },
+          [_vm._v("双色")]
+        ),
+        _vm._v(" "),
+        _c(
+          "mt-button",
+          { attrs: { type: "primary", plain: "" }, on: { click: _vm.toFour } },
+          [_vm._v("四色")]
+        )
+      ],
+      1
     )
   ])
 }
@@ -30149,6 +30373,51 @@ if (false) {
     require("vue-loader/node_modules/vue-hot-reload-api")      .rerender("data-v-ac924424", esExports)
   }
 }
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(61);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(6)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/_css-loader@0.28.11@css-loader/index.js!./animate.css", function() {
+			var newContent = require("!!../../../node_modules/_css-loader@0.28.11@css-loader/index.js!./animate.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "@charset \"UTF-8\";\n\n/*!\n * animate.css -http://daneden.me/animate\n * Version - 3.5.2\n * Licensed under the MIT license - http://opensource.org/licenses/MIT\n *\n * Copyright (c) 2017 Daniel Eden\n */\n\n.animated {\n  animation-duration: 1s;\n  animation-fill-mode: both;\n}\n\n.animated.infinite {\n  animation-iteration-count: infinite;\n}\n\n.animated.hinge {\n  animation-duration: 2s;\n}\n\n.animated.flipOutX,\n.animated.flipOutY,\n.animated.bounceIn,\n.animated.bounceOut {\n  animation-duration: .75s;\n}\n\n@keyframes bounce {\n  from, 20%, 53%, 80%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n    transform: translate3d(0,0,0);\n  }\n\n  40%, 43% {\n    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\n    transform: translate3d(0, -30px, 0);\n  }\n\n  70% {\n    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);\n    transform: translate3d(0, -15px, 0);\n  }\n\n  90% {\n    transform: translate3d(0,-4px,0);\n  }\n}\n\n.bounce {\n  animation-name: bounce;\n  transform-origin: center bottom;\n}\n\n@keyframes flash {\n  from, 50%, to {\n    opacity: 1;\n  }\n\n  25%, 75% {\n    opacity: 0;\n  }\n}\n\n.flash {\n  animation-name: flash;\n}\n\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\n\n@keyframes pulse {\n  from {\n    transform: scale3d(1, 1, 1);\n  }\n\n  50% {\n    transform: scale3d(1.05, 1.05, 1.05);\n  }\n\n  to {\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.pulse {\n  animation-name: pulse;\n}\n\n@keyframes rubberBand {\n  from {\n    transform: scale3d(1, 1, 1);\n  }\n\n  30% {\n    transform: scale3d(1.25, 0.75, 1);\n  }\n\n  40% {\n    transform: scale3d(0.75, 1.25, 1);\n  }\n\n  50% {\n    transform: scale3d(1.15, 0.85, 1);\n  }\n\n  65% {\n    transform: scale3d(.95, 1.05, 1);\n  }\n\n  75% {\n    transform: scale3d(1.05, .95, 1);\n  }\n\n  to {\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.rubberBand {\n  animation-name: rubberBand;\n}\n\n@keyframes shake {\n  from, to {\n    transform: translate3d(0, 0, 0);\n  }\n\n  10%, 30%, 50%, 70%, 90% {\n    transform: translate3d(-10px, 0, 0);\n  }\n\n  20%, 40%, 60%, 80% {\n    transform: translate3d(10px, 0, 0);\n  }\n}\n\n.shake {\n  animation-name: shake;\n}\n\n@keyframes headShake {\n  0% {\n    transform: translateX(0);\n  }\n\n  6.5% {\n    transform: translateX(-6px) rotateY(-9deg);\n  }\n\n  18.5% {\n    transform: translateX(5px) rotateY(7deg);\n  }\n\n  31.5% {\n    transform: translateX(-3px) rotateY(-5deg);\n  }\n\n  43.5% {\n    transform: translateX(2px) rotateY(3deg);\n  }\n\n  50% {\n    transform: translateX(0);\n  }\n}\n\n.headShake {\n  animation-timing-function: ease-in-out;\n  animation-name: headShake;\n}\n\n@keyframes swing {\n  20% {\n    transform: rotate3d(0, 0, 1, 15deg);\n  }\n\n  40% {\n    transform: rotate3d(0, 0, 1, -10deg);\n  }\n\n  60% {\n    transform: rotate3d(0, 0, 1, 5deg);\n  }\n\n  80% {\n    transform: rotate3d(0, 0, 1, -5deg);\n  }\n\n  to {\n    transform: rotate3d(0, 0, 1, 0deg);\n  }\n}\n\n.swing {\n  transform-origin: top center;\n  animation-name: swing;\n}\n\n@keyframes tada {\n  from {\n    transform: scale3d(1, 1, 1);\n  }\n\n  10%, 20% {\n    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);\n  }\n\n  30%, 50%, 70%, 90% {\n    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);\n  }\n\n  40%, 60%, 80% {\n    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);\n  }\n\n  to {\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.tada {\n  animation-name: tada;\n}\n\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\n\n@keyframes wobble {\n  from {\n    transform: none;\n  }\n\n  15% {\n    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);\n  }\n\n  30% {\n    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);\n  }\n\n  45% {\n    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);\n  }\n\n  60% {\n    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);\n  }\n\n  75% {\n    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);\n  }\n\n  to {\n    transform: none;\n  }\n}\n\n.wobble {\n  animation-name: wobble;\n}\n\n@keyframes jello {\n  from, 11.1%, to {\n    transform: none;\n  }\n\n  22.2% {\n    transform: skewX(-12.5deg) skewY(-12.5deg);\n  }\n\n  33.3% {\n    transform: skewX(6.25deg) skewY(6.25deg);\n  }\n\n  44.4% {\n    transform: skewX(-3.125deg) skewY(-3.125deg);\n  }\n\n  55.5% {\n    transform: skewX(1.5625deg) skewY(1.5625deg);\n  }\n\n  66.6% {\n    transform: skewX(-0.78125deg) skewY(-0.78125deg);\n  }\n\n  77.7% {\n    transform: skewX(0.390625deg) skewY(0.390625deg);\n  }\n\n  88.8% {\n    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);\n  }\n}\n\n.jello {\n  animation-name: jello;\n  transform-origin: center;\n}\n\n@keyframes bounceIn {\n  from, 20%, 40%, 60%, 80%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  0% {\n    opacity: 0;\n    transform: scale3d(.3, .3, .3);\n  }\n\n  20% {\n    transform: scale3d(1.1, 1.1, 1.1);\n  }\n\n  40% {\n    transform: scale3d(.9, .9, .9);\n  }\n\n  60% {\n    opacity: 1;\n    transform: scale3d(1.03, 1.03, 1.03);\n  }\n\n  80% {\n    transform: scale3d(.97, .97, .97);\n  }\n\n  to {\n    opacity: 1;\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.bounceIn {\n  animation-name: bounceIn;\n}\n\n@keyframes bounceInDown {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0);\n  }\n\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0);\n  }\n\n  75% {\n    transform: translate3d(0, -10px, 0);\n  }\n\n  90% {\n    transform: translate3d(0, 5px, 0);\n  }\n\n  to {\n    transform: none;\n  }\n}\n\n.bounceInDown {\n  animation-name: bounceInDown;\n}\n\n@keyframes bounceInLeft {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0);\n  }\n\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0);\n  }\n\n  75% {\n    transform: translate3d(-10px, 0, 0);\n  }\n\n  90% {\n    transform: translate3d(5px, 0, 0);\n  }\n\n  to {\n    transform: none;\n  }\n}\n\n.bounceInLeft {\n  animation-name: bounceInLeft;\n}\n\n@keyframes bounceInRight {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0);\n  }\n\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0);\n  }\n\n  75% {\n    transform: translate3d(10px, 0, 0);\n  }\n\n  90% {\n    transform: translate3d(-5px, 0, 0);\n  }\n\n  to {\n    transform: none;\n  }\n}\n\n.bounceInRight {\n  animation-name: bounceInRight;\n}\n\n@keyframes bounceInUp {\n  from, 60%, 75%, 90%, to {\n    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);\n  }\n\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0);\n  }\n\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n\n  75% {\n    transform: translate3d(0, 10px, 0);\n  }\n\n  90% {\n    transform: translate3d(0, -5px, 0);\n  }\n\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n.bounceInUp {\n  animation-name: bounceInUp;\n}\n\n@keyframes bounceOut {\n  20% {\n    transform: scale3d(.9, .9, .9);\n  }\n\n  50%, 55% {\n    opacity: 1;\n    transform: scale3d(1.1, 1.1, 1.1);\n  }\n\n  to {\n    opacity: 0;\n    transform: scale3d(.3, .3, .3);\n  }\n}\n\n.bounceOut {\n  animation-name: bounceOut;\n}\n\n@keyframes bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0);\n  }\n\n  40%, 45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n\n.bounceOutDown {\n  animation-name: bounceOutDown;\n}\n\n@keyframes bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n\n.bounceOutLeft {\n  animation-name: bounceOutLeft;\n}\n\n@keyframes bounceOutRight {\n  20% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0);\n  }\n}\n\n.bounceOutRight {\n  animation-name: bounceOutRight;\n}\n\n@keyframes bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0);\n  }\n\n  40%, 45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0);\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n\n.bounceOutUp {\n  animation-name: bounceOutUp;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n}\n\n.fadeIn {\n  animation-name: fadeIn;\n}\n\n@keyframes fadeInDown {\n  from {\n    opacity: 0;\n    transform: translate3d(0, -100%, 0);\n  }\n\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n\n.fadeInDown {\n  animation-name: fadeInDown;\n}\n\n@keyframes fadeInDownBig {\n  from {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0);\n  }\n\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n\n.fadeInDownBig {\n  animation-name: fadeInDownBig;\n}\n\n@keyframes fadeInLeft {\n  from {\n    opacity: 0;\n    transform: translate3d(-100%, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n\n.fadeInLeft {\n  animation-name: fadeInLeft;\n}\n\n@keyframes fadeInLeftBig {\n  from {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n\n.fadeInLeftBig {\n  animation-name: fadeInLeftBig;\n}\n\n@keyframes fadeInRight {\n  from {\n    opacity: 0;\n    transform: translate3d(100%, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n\n.fadeInRight {\n  animation-name: fadeInRight;\n}\n\n@keyframes fadeInRightBig {\n  from {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0);\n  }\n\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n\n.fadeInRightBig {\n  animation-name: fadeInRightBig;\n}\n\n@keyframes fadeInUp {\n  from {\n    opacity: 0;\n    transform: translate3d(0, 100%, 0);\n  }\n\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n\n.fadeInUp {\n  animation-name: fadeInUp;\n}\n\n@keyframes fadeInUpBig {\n  from {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0);\n  }\n\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n\n.fadeInUpBig {\n  animation-name: fadeInUpBig;\n}\n\n@keyframes fadeOut {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n  }\n}\n\n.fadeOut {\n  animation-name: fadeOut;\n}\n\n@keyframes fadeOutDown {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(0, 100%, 0);\n  }\n}\n\n.fadeOutDown {\n  animation-name: fadeOutDown;\n}\n\n@keyframes fadeOutDownBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n\n.fadeOutDownBig {\n  animation-name: fadeOutDownBig;\n}\n\n@keyframes fadeOutLeft {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(-100%, 0, 0);\n  }\n}\n\n.fadeOutLeft {\n  animation-name: fadeOutLeft;\n}\n\n@keyframes fadeOutLeftBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n\n.fadeOutLeftBig {\n  animation-name: fadeOutLeftBig;\n}\n\n@keyframes fadeOutRight {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(100%, 0, 0);\n  }\n}\n\n.fadeOutRight {\n  animation-name: fadeOutRight;\n}\n\n@keyframes fadeOutRightBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0);\n  }\n}\n\n.fadeOutRightBig {\n  animation-name: fadeOutRightBig;\n}\n\n@keyframes fadeOutUp {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(0, -100%, 0);\n  }\n}\n\n.fadeOutUp {\n  animation-name: fadeOutUp;\n}\n\n@keyframes fadeOutUpBig {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n\n.fadeOutUpBig {\n  animation-name: fadeOutUpBig;\n}\n\n@keyframes flip {\n  from {\n    transform: perspective(400px) rotate3d(0, 1, 0, -360deg);\n    animation-timing-function: ease-out;\n  }\n\n  40% {\n    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);\n    animation-timing-function: ease-out;\n  }\n\n  50% {\n    transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);\n    animation-timing-function: ease-in;\n  }\n\n  80% {\n    transform: perspective(400px) scale3d(.95, .95, .95);\n    animation-timing-function: ease-in;\n  }\n\n  to {\n    transform: perspective(400px);\n    animation-timing-function: ease-in;\n  }\n}\n\n.animated.flip {\n  -webkit-backface-visibility: visible;\n  backface-visibility: visible;\n  animation-name: flip;\n}\n\n@keyframes flipInX {\n  from {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0;\n  }\n\n  40% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    animation-timing-function: ease-in;\n  }\n\n  60% {\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1;\n  }\n\n  80% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\n  }\n\n  to {\n    transform: perspective(400px);\n  }\n}\n\n.flipInX {\n  -webkit-backface-visibility: visible !important;\n  backface-visibility: visible !important;\n  animation-name: flipInX;\n}\n\n@keyframes flipInY {\n  from {\n    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0;\n  }\n\n  40% {\n    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);\n    animation-timing-function: ease-in;\n  }\n\n  60% {\n    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);\n    opacity: 1;\n  }\n\n  80% {\n    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);\n  }\n\n  to {\n    transform: perspective(400px);\n  }\n}\n\n.flipInY {\n  -webkit-backface-visibility: visible !important;\n  backface-visibility: visible !important;\n  animation-name: flipInY;\n}\n\n@keyframes flipOutX {\n  from {\n    transform: perspective(400px);\n  }\n\n  30% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1;\n  }\n\n  to {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0;\n  }\n}\n\n.flipOutX {\n  animation-name: flipOutX;\n  -webkit-backface-visibility: visible !important;\n  backface-visibility: visible !important;\n}\n\n@keyframes flipOutY {\n  from {\n    transform: perspective(400px);\n  }\n\n  30% {\n    transform: perspective(400px) rotate3d(0, 1, 0, -15deg);\n    opacity: 1;\n  }\n\n  to {\n    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);\n    opacity: 0;\n  }\n}\n\n.flipOutY {\n  -webkit-backface-visibility: visible !important;\n  backface-visibility: visible !important;\n  animation-name: flipOutY;\n}\n\n@keyframes lightSpeedIn {\n  from {\n    transform: translate3d(100%, 0, 0) skewX(-30deg);\n    opacity: 0;\n  }\n\n  60% {\n    transform: skewX(20deg);\n    opacity: 1;\n  }\n\n  80% {\n    transform: skewX(-5deg);\n    opacity: 1;\n  }\n\n  to {\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.lightSpeedIn {\n  animation-name: lightSpeedIn;\n  animation-timing-function: ease-out;\n}\n\n@keyframes lightSpeedOut {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    transform: translate3d(100%, 0, 0) skewX(30deg);\n    opacity: 0;\n  }\n}\n\n.lightSpeedOut {\n  animation-name: lightSpeedOut;\n  animation-timing-function: ease-in;\n}\n\n@keyframes rotateIn {\n  from {\n    transform-origin: center;\n    transform: rotate3d(0, 0, 1, -200deg);\n    opacity: 0;\n  }\n\n  to {\n    transform-origin: center;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.rotateIn {\n  animation-name: rotateIn;\n}\n\n@keyframes rotateInDownLeft {\n  from {\n    transform-origin: left bottom;\n    transform: rotate3d(0, 0, 1, -45deg);\n    opacity: 0;\n  }\n\n  to {\n    transform-origin: left bottom;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.rotateInDownLeft {\n  animation-name: rotateInDownLeft;\n}\n\n@keyframes rotateInDownRight {\n  from {\n    transform-origin: right bottom;\n    transform: rotate3d(0, 0, 1, 45deg);\n    opacity: 0;\n  }\n\n  to {\n    transform-origin: right bottom;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.rotateInDownRight {\n  animation-name: rotateInDownRight;\n}\n\n@keyframes rotateInUpLeft {\n  from {\n    transform-origin: left bottom;\n    transform: rotate3d(0, 0, 1, 45deg);\n    opacity: 0;\n  }\n\n  to {\n    transform-origin: left bottom;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.rotateInUpLeft {\n  animation-name: rotateInUpLeft;\n}\n\n@keyframes rotateInUpRight {\n  from {\n    transform-origin: right bottom;\n    transform: rotate3d(0, 0, 1, -90deg);\n    opacity: 0;\n  }\n\n  to {\n    transform-origin: right bottom;\n    transform: none;\n    opacity: 1;\n  }\n}\n\n.rotateInUpRight {\n  animation-name: rotateInUpRight;\n}\n\n@keyframes rotateOut {\n  from {\n    transform-origin: center;\n    opacity: 1;\n  }\n\n  to {\n    transform-origin: center;\n    transform: rotate3d(0, 0, 1, 200deg);\n    opacity: 0;\n  }\n}\n\n.rotateOut {\n  animation-name: rotateOut;\n}\n\n@keyframes rotateOutDownLeft {\n  from {\n    transform-origin: left bottom;\n    opacity: 1;\n  }\n\n  to {\n    transform-origin: left bottom;\n    transform: rotate3d(0, 0, 1, 45deg);\n    opacity: 0;\n  }\n}\n\n.rotateOutDownLeft {\n  animation-name: rotateOutDownLeft;\n}\n\n@keyframes rotateOutDownRight {\n  from {\n    transform-origin: right bottom;\n    opacity: 1;\n  }\n\n  to {\n    transform-origin: right bottom;\n    transform: rotate3d(0, 0, 1, -45deg);\n    opacity: 0;\n  }\n}\n\n.rotateOutDownRight {\n  animation-name: rotateOutDownRight;\n}\n\n@keyframes rotateOutUpLeft {\n  from {\n    transform-origin: left bottom;\n    opacity: 1;\n  }\n\n  to {\n    transform-origin: left bottom;\n    transform: rotate3d(0, 0, 1, -45deg);\n    opacity: 0;\n  }\n}\n\n.rotateOutUpLeft {\n  animation-name: rotateOutUpLeft;\n}\n\n@keyframes rotateOutUpRight {\n  from {\n    transform-origin: right bottom;\n    opacity: 1;\n  }\n\n  to {\n    transform-origin: right bottom;\n    transform: rotate3d(0, 0, 1, 90deg);\n    opacity: 0;\n  }\n}\n\n.rotateOutUpRight {\n  animation-name: rotateOutUpRight;\n}\n\n@keyframes hinge {\n  0% {\n    transform-origin: top left;\n    animation-timing-function: ease-in-out;\n  }\n\n  20%, 60% {\n    transform: rotate3d(0, 0, 1, 80deg);\n    transform-origin: top left;\n    animation-timing-function: ease-in-out;\n  }\n\n  40%, 80% {\n    transform: rotate3d(0, 0, 1, 60deg);\n    transform-origin: top left;\n    animation-timing-function: ease-in-out;\n    opacity: 1;\n  }\n\n  to {\n    transform: translate3d(0, 700px, 0);\n    opacity: 0;\n  }\n}\n\n.hinge {\n  animation-name: hinge;\n}\n\n@keyframes jackInTheBox {\n  from {\n    opacity: 0;\n    transform: scale(0.1) rotate(30deg);\n    transform-origin: center bottom;\n  }\n\n  50% {\n    transform: rotate(-10deg);\n  }\n\n  70% {\n    transform: rotate(3deg);\n  }\n\n  to {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n\n.jackInTheBox {\n  animation-name: jackInTheBox;\n}\n\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\n\n@keyframes rollIn {\n  from {\n    opacity: 0;\n    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);\n  }\n\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n\n.rollIn {\n  animation-name: rollIn;\n}\n\n/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */\n\n@keyframes rollOut {\n  from {\n    opacity: 1;\n  }\n\n  to {\n    opacity: 0;\n    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);\n  }\n}\n\n.rollOut {\n  animation-name: rollOut;\n}\n\n@keyframes zoomIn {\n  from {\n    opacity: 0;\n    transform: scale3d(.3, .3, .3);\n  }\n\n  50% {\n    opacity: 1;\n  }\n}\n\n.zoomIn {\n  animation-name: zoomIn;\n}\n\n@keyframes zoomInDown {\n  from {\n    opacity: 0;\n    transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomInDown {\n  animation-name: zoomInDown;\n}\n\n@keyframes zoomInLeft {\n  from {\n    opacity: 0;\n    transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomInLeft {\n  animation-name: zoomInLeft;\n}\n\n@keyframes zoomInRight {\n  from {\n    opacity: 0;\n    transform: scale3d(.1, .1, .1) translate3d(1000px, 0, 0);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    transform: scale3d(.475, .475, .475) translate3d(-10px, 0, 0);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomInRight {\n  animation-name: zoomInRight;\n}\n\n@keyframes zoomInUp {\n  from {\n    opacity: 0;\n    transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  60% {\n    opacity: 1;\n    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomInUp {\n  animation-name: zoomInUp;\n}\n\n@keyframes zoomOut {\n  from {\n    opacity: 1;\n  }\n\n  50% {\n    opacity: 0;\n    transform: scale3d(.3, .3, .3);\n  }\n\n  to {\n    opacity: 0;\n  }\n}\n\n.zoomOut {\n  animation-name: zoomOut;\n}\n\n@keyframes zoomOutDown {\n  40% {\n    opacity: 1;\n    transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  to {\n    opacity: 0;\n    transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);\n    transform-origin: center bottom;\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomOutDown {\n  animation-name: zoomOutDown;\n}\n\n@keyframes zoomOutLeft {\n  40% {\n    opacity: 1;\n    transform: scale3d(.475, .475, .475) translate3d(42px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    transform: scale(.1) translate3d(-2000px, 0, 0);\n    transform-origin: left center;\n  }\n}\n\n.zoomOutLeft {\n  animation-name: zoomOutLeft;\n}\n\n@keyframes zoomOutRight {\n  40% {\n    opacity: 1;\n    transform: scale3d(.475, .475, .475) translate3d(-42px, 0, 0);\n  }\n\n  to {\n    opacity: 0;\n    transform: scale(.1) translate3d(2000px, 0, 0);\n    transform-origin: right center;\n  }\n}\n\n.zoomOutRight {\n  animation-name: zoomOutRight;\n}\n\n@keyframes zoomOutUp {\n  40% {\n    opacity: 1;\n    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);\n    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);\n  }\n\n  to {\n    opacity: 0;\n    transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);\n    transform-origin: center bottom;\n    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);\n  }\n}\n\n.zoomOutUp {\n  animation-name: zoomOutUp;\n}\n\n@keyframes slideInDown {\n  from {\n    transform: translate3d(0, -100%, 0);\n    visibility: visible;\n  }\n\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n.slideInDown {\n  animation-name: slideInDown;\n}\n\n@keyframes slideInLeft {\n  from {\n    transform: translate3d(-100%, 0, 0);\n    visibility: visible;\n  }\n\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n.slideInLeft {\n  animation-name: slideInLeft;\n}\n\n@keyframes slideInRight {\n  from {\n    transform: translate3d(100%, 0, 0);\n    visibility: visible;\n  }\n\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n.slideInRight {\n  animation-name: slideInRight;\n}\n\n@keyframes slideInUp {\n  from {\n    transform: translate3d(0, 100%, 0);\n    visibility: visible;\n  }\n\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n.slideInUp {\n  animation-name: slideInUp;\n}\n\n@keyframes slideOutDown {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    transform: translate3d(0, 100%, 0);\n  }\n}\n\n.slideOutDown {\n  animation-name: slideOutDown;\n}\n\n@keyframes slideOutLeft {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    transform: translate3d(-100%, 0, 0);\n  }\n}\n\n.slideOutLeft {\n  animation-name: slideOutLeft;\n}\n\n@keyframes slideOutRight {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    transform: translate3d(100%, 0, 0);\n  }\n}\n\n.slideOutRight {\n  animation-name: slideOutRight;\n}\n\n@keyframes slideOutUp {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n\n  to {\n    visibility: hidden;\n    transform: translate3d(0, -100%, 0);\n  }\n}\n\n.slideOutUp {\n  animation-name: slideOutUp;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
