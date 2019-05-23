@@ -24252,6 +24252,7 @@ exports.default = {
 //
 //
 //
+//
 
 /***/ }),
 /* 13 */
@@ -24388,10 +24389,12 @@ exports.default = {
       }
       var cycleNumber = 0;
       for (var _i = 0; _i < this.mineCount; _i++) {
-        if (this.arr[Math.floor(Math.random() * this.count)][Math.floor(Math.random() * this.count)].isMine) {
+        var m = Math.floor(Math.random() * this.count);
+        var n = Math.floor(Math.random() * this.count);
+        if (this.arr[m][n].isMine) {
           _i--;
         } else {
-          this.arr[Math.floor(Math.random() * this.count)][Math.floor(Math.random() * this.count)].isMine = 1;
+          this.arr[m][n].isMine = 1;
         }
       }
       //判断每一个格子周围的雷的个数
@@ -24399,11 +24402,11 @@ exports.default = {
         for (var _j = 0; _j < this.count; _j++) {
           if (this.arr[_i2][_j].isMine) continue; //如果这个格子本身是雷，直接跳过
           var minNumber = 0;
-          for (var m = _i2 - 1; m < _i2 + 2; m++) {
-            if (m < 0 || m === this.count) continue;
-            for (var n = _j - 1; n < _j + 2; n++) {
-              if (n < 0 || n === this.count) continue;
-              minNumber += this.arr[m][n].isMine;
+          for (var _m = _i2 - 1; _m < _i2 + 2; _m++) {
+            if (_m < 0 || _m === this.count) continue;
+            for (var _n = _j - 1; _n < _j + 2; _n++) {
+              if (_n < 0 || _n === this.count) continue;
+              minNumber += this.arr[_m][_n].isMine;
             }
           }
           this.arr[_i2][_j].aroundNumber = minNumber;
@@ -24425,6 +24428,7 @@ exports.default = {
       //用jquery来控制这个元素的隐藏与否
       (0, _jquery2.default)("#mineSweep_container .rows").eq(i).children().eq(j).addClass("open").children(".itemContent").css("display", "block");
       this.open_number++;
+      console.log(this.open_number, this.count * this.count, this.mineCount);
       if (this.open_number === this.count * this.count - this.mineCount) {
         (0, _toast2.default)("恭喜通关");
         clearInterval(this.timer);
@@ -29959,6 +29963,7 @@ var render = function() {
             appear: "",
             tag: "div",
             "leave-active-class": "flip animated",
+            "enter-active-class": "flip animated",
             duration: { leave: 500 }
           }
         },
