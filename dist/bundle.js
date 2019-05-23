@@ -24894,7 +24894,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
 
 exports.default = {
   data: function data() {
@@ -25012,7 +25011,9 @@ exports.default = {
         (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ left: 0 + "px", top: 0 + "px" });
         return;
       }
-      this.$set(this.obj[this.i][this.j - 1], "isOpen", true);
+      if (this.j) {
+        this.$set(this.obj[this.i][this.j - 1], "isOpen", true);
+      }
       this.obj[index].push.apply(this.obj[index], this.obj[this.i].splice(this.j));
       (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ left: 0 + "px", top: 0 + "px" });
       this.judge(index);
@@ -25025,11 +25026,11 @@ exports.default = {
     },
     getNumber: function getNumber(xxx) {
       //定义一个数组
+      this.diffculty = xxx;
       for (var i = 0; i < 10; i++) {
         this.obj[i].splice(0);
       }
       this.arr.splice(0);
-      this.diffculty = 1;
       this.n = -1;
       this.get = 0;
       if (xxx === 0) {
@@ -30078,7 +30079,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n*[data-v-7be81122] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.v-enter[data-v-7be81122] {\n  opacity: 0;\n  transform: translateY(50px);\n}\n.v-enter-active[data-v-7be81122] {\n  transition: all 0.5s ease;\n}\n#card_container[data-v-7be81122] {\n  background: green;\n  height: 200vh;\n  width: 100vw;\n}\n#card_container .body[data-v-7be81122] {\n  margin: 0 auto;\n  transition: all 3s linear;\n  display: grid;\n  width: 1100px;\n  grid-template-columns: repeat(10, 10%);\n}\n#card_container .body .column .box[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .box img[data-v-7be81122] {\n  width: 100px;\n  position: absolute;\n}\n#card_container .body .column .item[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .item .content[data-v-7be81122] {\n  height: 100%;\n  position: absolute;\n  border: 1px solid red;\n  left: 0;\n  top: 0;\n}\n#card_container .body .column .item .content img[data-v-7be81122] {\n  width: 100px;\n}\n#card_container .control[data-v-7be81122] {\n  position: fixed;\n  bottom: 0;\n  text-align: center;\n  display: flex;\n  align-items: flex-end;\n}\n#card_container .control img[data-v-7be81122] {\n  margin: 0 100px;\n  width: 80px;\n  height: 120px;\n}\n#card_container .control p[data-v-7be81122] {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: center;\n}\n#card_container .control p button[data-v-7be81122] {\n  color: #ddd;\n  margin: 10px;\n  padding: 8px;\n  vertical-align: center;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-7be81122] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.v-enter[data-v-7be81122] {\n  opacity: 0;\n  transform: translateY(50px);\n}\n.v-enter-active[data-v-7be81122] {\n  transition: all 0.5s ease;\n}\n#card_container[data-v-7be81122] {\n  background: green;\n  height: 200vh;\n  width: 1200px;\n}\n#card_container .body[data-v-7be81122] {\n  margin: 0 auto;\n  transition: all 3s linear;\n  display: grid;\n  width: 1100px;\n  grid-template-columns: repeat(10, 10%);\n}\n#card_container .body .column .box[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .box img[data-v-7be81122] {\n  width: 100px;\n  position: absolute;\n}\n#card_container .body .column .item[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .item .content[data-v-7be81122] {\n  height: 100%;\n  position: absolute;\n  border: 1px solid red;\n  left: 0;\n  top: 0;\n}\n#card_container .body .column .item .content img[data-v-7be81122] {\n  width: 100px;\n}\n#card_container .control[data-v-7be81122] {\n  position: fixed;\n  bottom: 0;\n  text-align: center;\n  display: flex;\n  align-items: flex-end;\n}\n#card_container .control img[data-v-7be81122] {\n  margin: 0 100px;\n  width: 80px;\n  height: 120px;\n}\n#card_container .control p[data-v-7be81122] {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: center;\n}\n#card_container .control p button[data-v-7be81122] {\n  color: #ddd;\n  margin: 10px;\n  padding: 8px;\n  vertical-align: center;\n}\n", ""]);
 
 // exports
 
@@ -30105,7 +30106,7 @@ var render = function() {
       _vm._l(_vm.obj, function(item, i) {
         return _c(
           "div",
-          { key: i, staticClass: "column flip animated" },
+          { key: i, staticClass: "column" },
           [
             _c(
               "transition-group",
@@ -30138,9 +30139,7 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "content" }, [
-                      !item
-                        ? _c("div")
-                        : !jtem.isOpen
+                      !jtem.isOpen
                         ? _c("img", {
                             attrs: { src: _vm.imgs[52].src, alt: "" }
                           })
