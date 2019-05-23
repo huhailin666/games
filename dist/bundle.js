@@ -24995,8 +24995,13 @@ exports.default = {
       }
     },
     mousedown: function mousedown(el, i, j) {
-      if (!this.obj[i][j].isOpen) return;
-      for (var m = j; m < this.obj[i].length - 2; m++) {
+      console.log(i, j);
+      if (!this.obj[i][j].isOpen) {
+        console.log("移动的元素没有打开");
+        return;
+      }
+      for (var m = j; m < this.obj[i].length - 1; m++) {
+        if (m === this.obj[i].length - 1) break;
         if (this.obj[i][m].number != this.obj[i][m + 1].number + 1) {
           console.log("移动的元素不合法");
           return;
@@ -25015,23 +25020,23 @@ exports.default = {
       var index = Math.floor((x - (0, _jquery2.default)("#card_container .body").offset().left) / parseInt(this.width));
       this.dragging = false;
       //apply方法
-      if (index === this.i || this.obj[index][this.obj[index].length - 1].number != this.obj[this.i][this.j].number + 1) {
-        console.log("目标元素不合法");
+      if (index != this.i && (!this.obj[index].length || this.obj[index][this.obj[index].length - 1].number == this.obj[this.i][this.j].number + 1)) {
+        if (this.j) {
+          this.$set(this.obj[this.i][this.j - 1], "isOpen", true);
+        }
+        this.obj[index].push.apply(this.obj[index], this.obj[this.i].splice(this.j));
         (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ left: 0 + "px", top: 0 + "px" });
-        return;
+        this.judge(index);
+      } else {
+        // console.log("目标元素不合法");
+        (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ transform: "translate(0px,0px)" });
       }
-      if (this.j) {
-        this.$set(this.obj[this.i][this.j - 1], "isOpen", true);
-      }
-      this.obj[index].push.apply(this.obj[index], this.obj[this.i].splice(this.j));
-      (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ left: 0 + "px", top: 0 + "px" });
-      this.judge(index);
     },
     mousemove: function mousemove(el) {
       if (!this.dragging) return;
       var deltX = el.pageX - this.x;
       var deltY = el.pageY - this.y;
-      (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ left: deltX + "px", top: deltY + "px" });
+      (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ transform: "translate(" + deltX + "px," + deltY + "px)" });
     },
     getNumber: function getNumber(xxx) {
       //定义一个数组
