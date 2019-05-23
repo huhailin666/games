@@ -24428,7 +24428,6 @@ exports.default = {
       //用jquery来控制这个元素的隐藏与否
       (0, _jquery2.default)("#mineSweep_container .rows").eq(i).children().eq(j).addClass("open").children(".itemContent").css("display", "block");
       this.open_number++;
-      console.log(this.open_number, this.count * this.count, this.mineCount);
       if (this.open_number === this.count * this.count - this.mineCount) {
         (0, _toast2.default)("恭喜通关");
         clearInterval(this.timer);
@@ -24915,7 +24914,9 @@ exports.default = {
       n: -1,
       get: 0,
       fapai: false,
-      diffculty: 0
+      diffculty: 0,
+      fapaiCount: 0,
+      fapaiFlag: true
     };
   },
   created: function created() {
@@ -24981,12 +24982,16 @@ exports.default = {
     deal: function deal() {
       //发牌
       this.fapai = true;
+      this.fapaiCount++;
       for (var i = 0; i < 10; i++) {
         var index = this.arr[++this.n].index;
         var number = this.arr[this.n].number;
         var color = this.arr[this.n].color;
         this.obj[i].push({ isOpen: true, index: index, number: number, color: color });
         this.judge(i);
+      }
+      if (this.fapaiCount == 5) {
+        this.fapaiFlag = false;
       }
     },
     mousedown: function mousedown(el, i, j) {
@@ -25031,6 +25036,8 @@ exports.default = {
     getNumber: function getNumber(xxx) {
       //定义一个数组
       this.diffculty = xxx;
+      this.fapaiCount = 0;
+      this.fapaiFlag = true;
       for (var i = 0; i < 10; i++) {
         this.obj[i].splice(0);
       }
@@ -29168,7 +29175,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-beb34d62] {\n  background: #eeeeee;\n  text-align: center;\n}\n.container h3[data-v-beb34d62] {\n  margin: 0;\n  padding: 0;\n}\n.container p[data-v-beb34d62] {\n  margin: 5px auto;\n  display: flex;\n  width: 500px;\n  justify-content: space-around;\n}\n.container p button[data-v-beb34d62] {\n  width: 100%;\n  color: black;\n  height: 30px;\n}\n.container p button.active[data-v-beb34d62] {\n  background: #ccc;\n}\n", ""]);
+exports.push([module.i, "\n.container[data-v-beb34d62] {\n  background: #eeeeee;\n  text-align: center;\n}\n.container .leave[data-v-beb34d62] {\n  display: none;\n}\n.container h3[data-v-beb34d62] {\n  margin: 0;\n  padding: 0;\n}\n.container p[data-v-beb34d62] {\n  margin: 5px auto;\n  display: flex;\n  width: 500px;\n  justify-content: space-around;\n}\n.container p button[data-v-beb34d62] {\n  width: 100%;\n  color: black;\n  height: 30px;\n}\n.container p button.active[data-v-beb34d62] {\n  background: #ccc;\n}\n", ""]);
 
 // exports
 
@@ -29962,7 +29969,7 @@ var render = function() {
           attrs: {
             appear: "",
             tag: "div",
-            "leave-active-class": "flip animated",
+            "leave-active-class": "leave",
             "enter-active-class": "flip animated",
             duration: { leave: 500 }
           }
@@ -30084,7 +30091,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n*[data-v-7be81122] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.v-enter[data-v-7be81122] {\n  opacity: 0;\n  transform: translateY(50px);\n}\n.v-enter-active[data-v-7be81122] {\n  transition: all 0.5s ease;\n}\n#card_container[data-v-7be81122] {\n  background: green;\n  height: 200vh;\n  width: 1200px;\n}\n#card_container .body[data-v-7be81122] {\n  margin: 0 auto;\n  transition: all 3s linear;\n  display: grid;\n  width: 1100px;\n  grid-template-columns: repeat(10, 10%);\n}\n#card_container .body .column .box[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .box img[data-v-7be81122] {\n  width: 100px;\n  position: absolute;\n}\n#card_container .body .column .item[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .item .content[data-v-7be81122] {\n  height: 100%;\n  position: absolute;\n  border: 1px solid red;\n  left: 0;\n  top: 0;\n}\n#card_container .body .column .item .content img[data-v-7be81122] {\n  width: 100px;\n}\n#card_container .control[data-v-7be81122] {\n  position: fixed;\n  bottom: 0;\n  text-align: center;\n  display: flex;\n  align-items: flex-end;\n}\n#card_container .control img[data-v-7be81122] {\n  margin: 0 100px;\n  width: 80px;\n  height: 120px;\n}\n#card_container .control p[data-v-7be81122] {\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: center;\n}\n#card_container .control p button[data-v-7be81122] {\n  color: #ddd;\n  margin: 10px;\n  padding: 8px;\n  vertical-align: center;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-7be81122] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.v-enter[data-v-7be81122] {\n  opacity: 0;\n  transform: translateY(50px);\n}\n.v-enter-active[data-v-7be81122] {\n  transition: all 0.5s ease;\n}\n#card_container[data-v-7be81122] {\n  background: green;\n  height: 200vh;\n  width: 1200px;\n}\n#card_container .body[data-v-7be81122] {\n  margin: 0 auto;\n  transition: all 3s linear;\n  display: grid;\n  width: 1100px;\n  grid-template-columns: repeat(10, 10%);\n}\n#card_container .body .column .box[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .box img[data-v-7be81122] {\n  width: 100px;\n  position: absolute;\n}\n#card_container .body .column .item[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .item .content[data-v-7be81122] {\n  height: 100%;\n  position: absolute;\n  border: 1px solid red;\n  left: 0;\n  top: 0;\n}\n#card_container .body .column .item .content img[data-v-7be81122] {\n  width: 100px;\n}\n#card_container .control[data-v-7be81122] {\n  position: fixed;\n  bottom: 0;\n  text-align: center;\n  display: flex;\n  align-items: flex-end;\n}\n#card_container .control img[data-v-7be81122] {\n  position: absolute;\n  margin: 0 100px;\n  width: 80px;\n  height: 120px;\n}\n#card_container .control p[data-v-7be81122] {\n  margin-left: 400px;\n  display: flex;\n  flex-wrap: nowrap;\n  justify-content: center;\n}\n#card_container .control p button[data-v-7be81122] {\n  color: #ddd;\n  margin: 10px;\n  padding: 8px;\n  vertical-align: center;\n}\n", ""]);
 
 // exports
 
@@ -30166,6 +30173,14 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "control" }, [
       _c("img", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.fapaiFlag,
+            expression: "fapaiFlag"
+          }
+        ],
         ref: "start",
         attrs: { src: _vm.imgs[52].src, alt: "" },
         on: { click: _vm.deal }
