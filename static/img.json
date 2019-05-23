@@ -157,7 +157,7 @@
       "src": "/static/images/52.jpg"
     },
     {
-      "src": "../static/images/bg.jpg"
+      "src": "./../static/images/bg.jpg"
     }
   ]
 }
