@@ -24874,6 +24874,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
 
 exports.default = {
   data: function data() {
@@ -24896,6 +24899,11 @@ exports.default = {
   },
   created: function created() {
     this.getNumber(2);
+    var str = "";
+    for (var i = 1; i < 53; i++) {
+      str += '{ "src": "./../static/images/' + i + '.jpg"},';
+    }
+    console.log("str");
   },
   mounted: function mounted() {
     this.width = (0, _jquery2.default)(".column").css("width");
@@ -24918,8 +24926,6 @@ exports.default = {
     reStart: function reStart() {
       console.log("重新开始");
       this.getNumber(this.diffculty);
-      this.n = -1;
-      this.get = 0;
       this.obj[0].push();
     },
 
@@ -24947,6 +24953,8 @@ exports.default = {
         if (this.obj[i][m].number != n || this.obj[i][m].color != color) return;
         if (n === 13) {
           this.obj[i].splice(m);
+          this.$set(this.obj[i][this.obj[i].length - 1], "isOpen", true);
+          this.obj[i].push();
           this.get++;
           if (this.get === 8) {
             (0, _toast2.default)("恭喜通关");
@@ -24983,11 +24991,11 @@ exports.default = {
       if (!this.dragging) return;
       var x = el.pageX;
       //判断移动到了 index
-      var index = Math.floor((x - (0, _jquery2.default)("#card_container").offset().left) / parseInt(this.width));
+      var index = Math.floor((x - (0, _jquery2.default)("#card_container .body").offset().left) / parseInt(this.width));
       this.dragging = false;
       //apply方法
       if (index === this.i || this.obj[index][this.obj[index].length - 1].number != this.obj[this.i][this.j].number + 1) {
-        console.log("目标元素不合法");
+        console.log("目标元素不合法", this.obj[this.i], this.obj[index]);
         (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ left: 0 + "px", top: 0 + "px" });
         return;
       }
@@ -25004,7 +25012,10 @@ exports.default = {
     },
     getNumber: function getNumber(xxx) {
       //定义一个数组
-      this.arr = [];
+      for (var i = 0; i < 10; i++) {
+        this.obj[i].splice(0);
+      }
+      this.arr.splice(0);
       this.diffculty = 1;
       this.n = -1;
       this.get = 0;
@@ -25017,12 +25028,11 @@ exports.default = {
           });
         }
       } else if (xxx === 1) {
-
         for (var _k = 1; _k < 105; _k++) {
           this.arr.push({
             color: parseInt(_k / 53),
             number: _k % 13 ? _k % 13 : 13,
-            index: _k % 27 ? _k % 27 : 27
+            index: _k % 26 ? _k % 26 : 26
           });
         }
       } else {
@@ -25041,31 +25051,34 @@ exports.default = {
         this.arr[index] = this.arr[_k3];
         this.arr[_k3] = change;
       }
-      for (var i = 0; i < 10; i++) {
-        if (i < 4) {
+
+      console.log(this.arr);
+      for (var _i = 0; _i < 10; _i++) {
+        if (_i < 4) {
           for (var j = 0; j < 5; j++) {
             var _index2 = this.arr[++this.n].index;
             var _number = this.arr[this.n].number;
             var _color = this.arr[this.n].color;
-            this.obj[i][j] = { isOpen: false, index: _index2, number: _number, color: _color };
+            this.obj[_i][j] = { isOpen: false, index: _index2, number: _number, color: _color };
           }
           var _index = this.arr[++this.n].index;
           var number = this.arr[this.n].number;
           var color = this.arr[this.n].color;
-          this.obj[i][5] = { isOpen: true, index: _index, number: number, color: color };
+          this.obj[_i][5] = { isOpen: true, index: _index, number: number, color: color };
         } else {
           for (var _j = 0; _j < 4; _j++) {
             var _index4 = this.arr[++this.n].index;
             var _number3 = this.arr[this.n].number;
             var _color3 = this.arr[this.n].color;
-            this.obj[i][_j] = { isOpen: false, index: _index4, number: _number3, color: _color3 };
+            this.obj[_i][_j] = { isOpen: false, index: _index4, number: _number3, color: _color3 };
           }
           var _index3 = this.arr[++this.n].index;
           var _number2 = this.arr[this.n].number;
           var _color2 = this.arr[this.n].color;
-          this.obj[i][4] = { isOpen: true, index: _index3, number: _number2, color: _color2 };
+          this.obj[_i][4] = { isOpen: true, index: _index3, number: _number2, color: _color2 };
         }
       }
+      console.log(this.obj);
     }
   }
 };
@@ -29996,7 +30009,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n*[data-v-7be81122] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.v-enter[data-v-7be81122] {\n  opacity: 0;\n  transform: translateY(50px);\n}\n.v-enter-active[data-v-7be81122] {\n  transition: all 0.5s ease;\n}\n#card_container .body[data-v-7be81122] {\n  transition: all 3s linear;\n  display: grid;\n  width: 1100px;\n  grid-template-columns: repeat(10, 10%);\n}\n#card_container .body .column .box[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .box img[data-v-7be81122] {\n  width: 100px;\n  position: absolute;\n}\n#card_container .body .column .item[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .item .content[data-v-7be81122] {\n  height: 100%;\n  position: absolute;\n  border: 1px solid red;\n  left: 0;\n  top: 0;\n}\n#card_container .body .column .item .content img[data-v-7be81122] {\n  width: 100px;\n}\n#card_container .control[data-v-7be81122] {\n  position: fixed;\n  bottom: 0;\n  text-align: center;\n}\n#card_container .control img[data-v-7be81122] {\n  margin-right: 100px;\n  width: 100px;\n  height: 150px;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-7be81122] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n.v-enter[data-v-7be81122] {\n  opacity: 0;\n  transform: translateY(50px);\n}\n.v-enter-active[data-v-7be81122] {\n  transition: all 0.5s ease;\n}\n#card_container[data-v-7be81122] {\n  background: green;\n  height: 200vh;\n  width: 100vw;\n}\n#card_container .body[data-v-7be81122] {\n  margin: 0 auto;\n  transition: all 3s linear;\n  display: grid;\n  width: 1100px;\n  grid-template-columns: repeat(10, 10%);\n}\n#card_container .body .column .box[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .box img[data-v-7be81122] {\n  width: 100px;\n  position: absolute;\n}\n#card_container .body .column .item[data-v-7be81122] {\n  width: 100%;\n  height: 40px;\n  position: relative;\n}\n#card_container .body .column .item .content[data-v-7be81122] {\n  height: 100%;\n  position: absolute;\n  border: 1px solid red;\n  left: 0;\n  top: 0;\n}\n#card_container .body .column .item .content img[data-v-7be81122] {\n  width: 100px;\n}\n#card_container .control[data-v-7be81122] {\n  position: fixed;\n  bottom: 0;\n  text-align: center;\n}\n#card_container .control img[data-v-7be81122] {\n  margin: 0 100px;\n  width: 80px;\n  height: 120px;\n}\n#card_container .control button[data-v-7be81122] {\n  color: #ddd;\n  margin: 10px;\n  padding: 8px;\n  vertical-align: center;\n}\n", ""]);
 
 // exports
 
@@ -30019,11 +30032,11 @@ var render = function() {
   return _c("div", { attrs: { id: "card_container" } }, [
     _c(
       "div",
-      { staticClass: "body animated flip" },
+      { staticClass: "body flip animated" },
       _vm._l(_vm.obj, function(item, i) {
         return _c(
           "div",
-          { key: i, staticClass: "column" },
+          { key: i, staticClass: "column flip animated" },
           [
             _c(
               "transition-group",
@@ -30056,7 +30069,9 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "content" }, [
-                      !jtem.isOpen
+                      !item
+                        ? _c("div")
+                        : !jtem.isOpen
                         ? _c("img", {
                             attrs: { src: _vm.imgs[52].src, alt: "" }
                           })
@@ -30068,22 +30083,6 @@ var render = function() {
                 )
               }),
               0
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.fapai,
-                    expression: "fapai"
-                  }
-                ],
-                staticClass: "box"
-              },
-              [_c("img", { attrs: { src: _vm.imgs[52].src, alt: "" } })]
             )
           ],
           1
@@ -30111,7 +30110,7 @@ var render = function() {
         _c(
           "mt-button",
           { attrs: { type: "primary", plain: "" }, on: { click: _vm.toOnly } },
-          [_vm._v("单色")]
+          [_vm._v("简单")]
         ),
         _vm._v(" "),
         _c(
@@ -30120,13 +30119,13 @@ var render = function() {
             attrs: { type: "primary", plain: "" },
             on: { click: _vm.toDouble }
           },
-          [_vm._v("双色")]
+          [_vm._v("中等")]
         ),
         _vm._v(" "),
         _c(
           "mt-button",
           { attrs: { type: "primary", plain: "" }, on: { click: _vm.toFour } },
-          [_vm._v("四色")]
+          [_vm._v("困难")]
         )
       ],
       1
