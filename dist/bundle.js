@@ -24579,10 +24579,12 @@ exports.default = {
       }
 
       for (var _i = 0; _i < this.mineCount; _i++) {
-        if (this.arr[Math.floor(Math.random() * this.count)][Math.floor(Math.random() * this.count)].isMine) {
+        var m = Math.floor(Math.random() * this.count);
+        var n = Math.floor(Math.random() * this.count);
+        if (this.arr[m][n].isMine) {
           _i--;
         } else {
-          this.arr[Math.floor(Math.random() * this.count)][Math.floor(Math.random() * this.count)].isMine = 1;
+          this.arr[m][n].isMine = 1;
         }
       }
 
@@ -24591,11 +24593,11 @@ exports.default = {
         for (var _j = 0; _j < this.count; _j++) {
           if (this.arr[_i2][_j].isMine) continue; //如果这个格子本身是雷，直接跳过
           var minNumber = 0;
-          for (var m = _i2 - 1; m < _i2 + 2; m++) {
-            if (m < 0 || m === this.count) continue;
-            for (var n = _j - 1; n < _j + 2; n++) {
-              if (n < 0 || n === this.count) continue;
-              minNumber += this.arr[m][n].isMine;
+          for (var _m = _i2 - 1; _m < _i2 + 2; _m++) {
+            if (_m < 0 || _m === this.count) continue;
+            for (var _n = _j - 1; _n < _j + 2; _n++) {
+              if (_n < 0 || _n === this.count) continue;
+              minNumber += this.arr[_m][_n].isMine;
             }
           }
           this.arr[_i2][_j].aroundNumber = minNumber;
@@ -24769,10 +24771,12 @@ exports.default = {
       }
 
       for (var _i = 0; _i < this.mineCount; _i++) {
-        if (this.arr[Math.floor(Math.random() * this.count)][Math.floor(Math.random() * this.count)].isMine) {
+        var m = Math.floor(Math.random() * this.count);
+        var n = Math.floor(Math.random() * this.count);
+        if (this.arr[m][n].isMine) {
           _i--;
         } else {
-          this.arr[Math.floor(Math.random() * this.count)][Math.floor(Math.random() * this.count)].isMine = 1;
+          this.arr[m][n].isMine = 1;
         }
       }
 
@@ -24781,11 +24785,11 @@ exports.default = {
         for (var _j = 0; _j < this.count; _j++) {
           if (this.arr[_i2][_j].isMine) continue; //如果这个格子本身是雷，直接跳过
           var minNumber = 0;
-          for (var m = _i2 - 1; m < _i2 + 2; m++) {
-            if (m < 0 || m === this.count) continue;
-            for (var n = _j - 1; n < _j + 2; n++) {
-              if (n < 0 || n === this.count) continue;
-              minNumber += this.arr[m][n].isMine;
+          for (var _m = _i2 - 1; _m < _i2 + 2; _m++) {
+            if (_m < 0 || _m === this.count) continue;
+            for (var _n = _j - 1; _n < _j + 2; _n++) {
+              if (_n < 0 || _n === this.count) continue;
+              minNumber += this.arr[_m][_n].isMine;
             }
           }
           this.arr[_i2][_j].aroundNumber = minNumber;
@@ -24970,9 +24974,10 @@ exports.default = {
         if (this.obj[i][m].number != n || this.obj[i][m].color != color) return;
         if (n === 13) {
           this.obj[i].splice(m);
-          this.$set(this.obj[i][this.obj[i].length - 1], "isOpen", true);
+          // this.$set(this.obj[i][this.obj[i].length - 1], "isOpen", true);
           this.obj[i].push();
           this.get++;
+          console.log('消掉', this.get, '次');
           if (this.get === 8) {
             (0, _toast2.default)("恭喜通关");
           }
@@ -25025,7 +25030,6 @@ exports.default = {
           this.$set(this.obj[this.i][this.j - 1], "isOpen", true);
         }
         this.obj[index].push.apply(this.obj[index], this.obj[this.i].splice(this.j));
-        (0, _jquery2.default)("#card_container .column").eq(this.i).children().eq(this.j - 1).nextAll().children().css({ left: 0 + "px", top: 0 + "px" });
         this.judge(index);
       } else {
         // console.log("目标元素不合法");
