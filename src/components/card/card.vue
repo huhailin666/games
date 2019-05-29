@@ -1,39 +1,42 @@
 <template>
   <div id="card_container">
     <div class="body flip animated">
-      <!-- <transition-group enter-active-class="flip animated"  appear tag="div"> -->
       <div class="column" v-for="(item,i) in obj" :key="i">
-        <transition-group
+        <!-- <transition-group
           appear
           tag="div"
           leave-active-class="bounceOut animated"
           :duration="{leave:200}"
+        >-->
+        <div
+          draggable="true"
+          @dragstart="mousedown($event,i,j)"
+          @dragover="mousemove($event,i,j)"
+          @dragend="mouseup($event)"
+          class="item"
+          v-for="(jtem,j) in item"
+          :key="j"
         >
-          <div
-            draggable="true"
-            @dragstart="mousedown($event,i,j)"
-            @dragover="mousemove($event,i,j)"
-            @dragend="mouseup($event)"
-            class="item"
-            v-for="(jtem,j) in item"
-            :key="j"
-          >
-            <div class="content">
-              <img v-if="!jtem.isOpen" :src="imgs[52].src" alt>
-              <img v-else :src="imgs[(jtem.index)-1].src">
-            </div>
+          <div class="content">
+            <img v-if="!jtem.isOpen" :src="imgs[52].src" alt>
+            <img v-else :src="imgs[(jtem.index)-1].src">
           </div>
-        </transition-group>
-        <!-- <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter"> -->
-        <!-- <div v-show="fapai" class="box">
-          <img :src="imgs[52].src" alt>
-        </div>-->
-        <!-- </transition> -->
+        </div>
+        <!-- </transition-group> -->
+        <transition
+          @before-enter="beforeEnter($event,i)"
+          @enter="enter"
+          @after-enter="afterEnter($event,i)"
+        >
+          <div v-show="show[i]" class="box">
+            <img :src="imgs[52].src" alt>
+          </div>
+        </transition>
       </div>
       <!-- </transition-group> -->
     </div>
     <div class="control">
-      <img v-show="fapaiFlag" ref="start" :src="imgs[52].src" @click="deal" alt>
+      <img v-show="fapaiFlag" ref="card" :src="imgs[52].src" @click="deal" alt>
       <p>
         <mt-button @click="reStart" type="primary" plain>重新开始</mt-button>
         <mt-button @click="toOnly" type="primary" plain>简单</mt-button>
@@ -62,16 +65,26 @@ export default {
       arr: [],
       n: -1,
       get: 0,
-      fapai: false,
+      show: [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
       diffculty: 0,
       fapaiCount: 0,
       fapaiFlag: true
     };
   },
-  created() {
-    this.getNumber(0);
-  },
+  created() {},
   mounted() {
+    this.getNumber(0);
     this.width = $(".column").css("width");
   },
   methods: {
@@ -81,7 +94,6 @@ export default {
     },
     toDouble() {
       this.getNumber(1);
-
       this.obj[0].push();
     },
     toFour() {
@@ -94,17 +106,21 @@ export default {
       this.obj[0].push();
     },
     //控制发牌动画
-    beforeEnter(el) {
-      el.style.transform = "translate(10px,20px)";
+    beforeEnter(el, i) {
+      let cardPosition = this.$refs.card.getBoundingClientRect();
+      let left = cardPosition.left - i * parseInt(this.width);
+      let top = cardPosition.top - el.offsetTop * 40;
+      el.style.transform = `translate(${left}px,${top}px)`;
+      el.style.opacity = 1;
     },
     enter(el, done) {
       el.offsetWidth;
       el.style.transform = `translate(0px,0px)`;
-      el.style.transition = "all .2s cubic-bezier(.67,-0.43,.77,.68)";
+      el.style.transition = "all .5s";
       done();
     },
-    afterEnter(el) {
-      this.fapai = false;
+    afterEnter(el, i) {
+      this.show.splice(i, 1, false);
     },
     judge(i) {
       //判断是否能消掉
@@ -117,31 +133,50 @@ export default {
         if (this.obj[i][m].number != n || this.obj[i][m].color != color) return;
         if (n === 13) {
           this.obj[i].splice(m);
-          // this.$set(this.obj[i][this.obj[i].length - 1], "isOpen", true);
           this.obj[i].push();
           this.get++;
-          console.log('消掉',this.get,'次')
+          console.log("消掉", this.get, "次");
           if (this.get === 8) {
             Toast("恭喜通关");
           }
         }
       }
     },
-
+    fapaiAnimation(i) {
+      return new Promise(resolve => {
+        this.show.splice(i, 1, true);
+        setTimeout(() => {
+          let index = this.arr[++this.n].index;
+          let number = this.arr[this.n].number;
+          let color = this.arr[this.n].color;
+          this.obj[i].push({ isOpen: true, index, number, color });
+          this.show.splice(i, 1, false);
+          this.judge(i);
+          resolve();
+        }, 200);
+      });
+    },
+    async go() {
+      await this.fapaiAnimation(0);
+      await this.fapaiAnimation(1);
+      await this.fapaiAnimation(2);
+      await this.fapaiAnimation(3);
+      await this.fapaiAnimation(4);
+      await this.fapaiAnimation(5);
+      await this.fapaiAnimation(6);
+      await this.fapaiAnimation(7);
+      await this.fapaiAnimation(8);
+      await this.fapaiAnimation(9);
+    },
     deal() {
       //发牌
-      this.fapai = true;
       this.fapaiCount++;
-      for (let i = 0; i < 10; i++) {
-        let index = this.arr[++this.n].index;
-        let number = this.arr[this.n].number;
-        let color = this.arr[this.n].color;
-        this.obj[i].push({ isOpen: true, index, number, color });
-        this.judge(i);
-      }
-      if (this.fapaiCount == 5) {
-        this.fapaiFlag = false;
-      }
+      const that = this;
+
+      this.go();
+      // if (this.fapaiCount == 5) {
+      //   this.fapaiFlag = false;
+      // }
     },
     mousedown(el, i, j) {
       console.log(i, j);
@@ -171,10 +206,11 @@ export default {
       );
       this.dragging = false;
       //apply方法
-      if (index!=this.i&&
+      if (
+        index != this.i &&
         (!this.obj[index].length ||
-        this.obj[index][this.obj[index].length - 1].number ==
-          this.obj[this.i][this.j].number + 1)
+          this.obj[index][this.obj[index].length - 1].number ==
+            this.obj[this.i][this.j].number + 1)
       ) {
         if (this.j) {
           this.$set(this.obj[this.i][this.j - 1], "isOpen", true);
@@ -250,32 +286,86 @@ export default {
         this.arr[index] = this.arr[k];
         this.arr[k] = change;
       }
+        const that=this
 
-      for (let i = 0; i < 10; i++) {
-        if (i < 4) {
-          for (let j = 0; j < 5; j++) {
-            let index = this.arr[++this.n].index;
-            let number = this.arr[this.n].number;
-            let color = this.arr[this.n].color;
-            this.obj[i][j] = { isOpen: false, index, number, color };
-          }
-          let index = this.arr[++this.n].index;
-          let number = this.arr[this.n].number;
-          let color = this.arr[this.n].color;
-          this.obj[i][5] = { isOpen: true, index, number, color };
-        } else {
-          for (let j = 0; j < 4; j++) {
-            let index = this.arr[++this.n].index;
-            let number = this.arr[this.n].number;
-            let color = this.arr[this.n].color;
-            this.obj[i][j] = { isOpen: false, index, number, color };
-          }
-          let index = this.arr[++this.n].index;
-          let number = this.arr[this.n].number;
-          let color = this.arr[this.n].color;
-          this.obj[i][4] = { isOpen: true, index, number, color };
-        }
+      function fapaiAnimationClose(i) {
+        that.show.splice(i, 1, true);
+        return new Promise(resolve => {
+          setTimeout(() => {
+            let index = that.arr[++that.n].index;
+            let number = that.arr[that.n].number;
+            let color = that.arr[that.n].color;
+            that.obj[i].push({ isOpen: false, index, number, color });
+            that.show.splice(i, 1, false);
+            that.judge(i);
+            resolve();
+          }, 200);
+        });
       }
+      async function kaipai() {
+        console.log(that)
+        await fapaiAnimationClose(0);
+        await fapaiAnimationClose(1);
+        await fapaiAnimationClose(2);
+        await fapaiAnimationClose(3);
+        await fapaiAnimationClose(4);
+        await fapaiAnimationClose(5);
+        await fapaiAnimationClose(6);
+        await fapaiAnimationClose(7);
+        await fapaiAnimationClose(8);
+        await fapaiAnimationClose(9);
+
+        await fapaiAnimationClose(0);
+        await fapaiAnimationClose(1);
+        await fapaiAnimationClose(2);
+        await fapaiAnimationClose(3);
+        await fapaiAnimationClose(4);
+        await fapaiAnimationClose(5);
+        await fapaiAnimationClose(6);
+        await fapaiAnimationClose(7);
+        await fapaiAnimationClose(8);
+        await fapaiAnimationClose(9);
+
+        await fapaiAnimationClose(0);
+        await fapaiAnimationClose(1);
+        await fapaiAnimationClose(2);
+        await fapaiAnimationClose(3);
+        await fapaiAnimationClose(4);
+        await fapaiAnimationClose(5);
+        await fapaiAnimationClose(6);
+        await fapaiAnimationClose(7);
+        await fapaiAnimationClose(8);
+        await fapaiAnimationClose(9);
+
+        await fapaiAnimationClose(0);
+        await fapaiAnimationClose(1);
+        await fapaiAnimationClose(2);
+        await fapaiAnimationClose(3);
+        await fapaiAnimationClose(4);
+        await fapaiAnimationClose(5);
+        await fapaiAnimationClose(6);
+        await fapaiAnimationClose(7);
+        await fapaiAnimationClose(8);
+        await fapaiAnimationClose(9);
+
+        await fapaiAnimationClose(0);
+        await fapaiAnimationClose(1);
+        await fapaiAnimationClose(2);
+        await fapaiAnimationClose(3);
+        await that.fapaiAnimation(4);
+        await that.fapaiAnimation(5);
+        await that.fapaiAnimation(6);
+        await that.fapaiAnimation(7);
+        await that.fapaiAnimation(8);
+        await that.fapaiAnimation(9);
+
+        await that.fapaiAnimation(0);
+        await that.fapaiAnimation(1);
+        await that.fapaiAnimation(2);
+        await that.fapaiAnimation(3);
+      }
+      kaipai();
+      //开始发牌
     }
   }
 };
@@ -285,14 +375,6 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-.v-enter {
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.v-enter-active {
-  transition: all 0.5s ease;
 }
 #card_container {
   background: green;
@@ -321,7 +403,6 @@ export default {
         .content {
           height: 100%;
           position: absolute;
-          border: 1px solid red;
           left: 0;
           top: 0;
           img {
