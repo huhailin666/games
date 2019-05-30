@@ -79,7 +79,8 @@ export default {
       ],
       diffculty: 0,
       fapaiCount: 0,
-      fapaiFlag: true
+      fapaiFlag: true,
+      isFapai: false
     };
   },
   created() {},
@@ -109,14 +110,14 @@ export default {
     beforeEnter(el, i) {
       let cardPosition = this.$refs.card.getBoundingClientRect();
       let left = cardPosition.left - i * parseInt(this.width);
-      let top = cardPosition.top - el.offsetTop * 40;
+      let top = cardPosition.top - 40*this.obj[i].length;
       el.style.transform = `translate(${left}px,${top}px)`;
       el.style.opacity = 1;
     },
     enter(el, done) {
       el.offsetWidth;
       el.style.transform = `translate(0px,0px)`;
-      el.style.transition = "all .5s";
+      el.style.transition = "all .2s";
       done();
     },
     afterEnter(el, i) {
@@ -170,13 +171,21 @@ export default {
     },
     deal() {
       //发牌
+      if (this.isFapai) {
+        return;
+      }
+      if (this.fapaiCount > 4) {
+        Toast("牌已发完");
+        return;
+      }
+      this.isFapai = true;
+      console.log(this.isFapai);
       this.fapaiCount++;
-      const that = this;
-
-      this.go();
-      // if (this.fapaiCount == 5) {
-      //   this.fapaiFlag = false;
-      // }
+      this.go().then(() => {
+        console.log("发牌完成");
+        this.isFapai = false;
+        console.log(this.isFapai);
+      });
     },
     mousedown(el, i, j) {
       console.log(i, j);
@@ -245,6 +254,10 @@ export default {
     },
     getNumber(xxx) {
       //定义一个数组
+      if (this.isFapai) {
+        return;
+      }
+
       this.diffculty = xxx;
       this.fapaiCount = 0;
       this.fapaiFlag = true;
@@ -286,8 +299,8 @@ export default {
         this.arr[index] = this.arr[k];
         this.arr[k] = change;
       }
-        const that=this
-
+      const that = this;
+      this.isFapai = true;
       function fapaiAnimationClose(i) {
         that.show.splice(i, 1, true);
         return new Promise(resolve => {
@@ -299,11 +312,10 @@ export default {
             that.show.splice(i, 1, false);
             that.judge(i);
             resolve();
-          }, 200);
+          }, 100);
         });
       }
       async function kaipai() {
-        console.log(that)
         await fapaiAnimationClose(0);
         await fapaiAnimationClose(1);
         await fapaiAnimationClose(2);
@@ -364,8 +376,11 @@ export default {
         await that.fapaiAnimation(2);
         await that.fapaiAnimation(3);
       }
-      kaipai();
       //开始发牌
+      kaipai().then(() => {
+        that.isFapai = false;
+        console.log(this.isFapai);
+      });
     }
   }
 };
