@@ -134,6 +134,7 @@ export default {
         if (this.obj[i][m].number != n || this.obj[i][m].color != color) return;
         if (n === 13) {
           this.obj[i].splice(m);
+          this.$set(this.obj[i][this.obj[i].length-1],'isOpen',true)
           this.obj[i].push();
           this.get++;
           console.log("消掉", this.get, "次");
