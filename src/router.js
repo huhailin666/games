@@ -33,12 +33,6 @@ var router = new Router({
       name: 'test',
       component: test
     }
-    // {
-    //   path:'/easy',component:easy
-    // },
-    // {
-    //   path:'/hard',component:hard
-    // }
   ]
 })
 
