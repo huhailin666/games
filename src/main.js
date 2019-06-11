@@ -4,12 +4,12 @@ import router from './router.js'
 
 Vue.config.productionTip = false
 
-import {Button,Toast} from 'mint-ui'
-Vue.component(Toast.name,Toast);
-Vue.component(Button.name, Button);
+// import {Button,Toast} from 'mint-ui'
+// Vue.component(Toast.name,Toast);
+// Vue.component(Button.name, Button);
 
 import './lib/animate/animate.css'
-
+import './lib/common/common.css'
 
 new Vue({
   el: '#app',
