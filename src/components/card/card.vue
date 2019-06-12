@@ -49,7 +49,7 @@
 <script>
 import $ from "jquery";
 import imgs from "../../../static/img.json";
-import { Toast } from "mint-ui";
+// import { Toast } from "mint-ui";
 export default {
   data() {
     return {
