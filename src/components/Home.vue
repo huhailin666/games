@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header">
         <h1>
-          <span v-for="item in title" :key="item">{{item}}</span>
+          <span class="boomtext rollIn animated" v-for="item in title" :key="item">{{item}}</span>
         </h1>
         <!-- 请选择你想玩的游戏 -->
       </div>
