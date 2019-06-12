@@ -42,7 +42,7 @@
 <script>
 import $ from "jquery";
 import "../../lib/iconfont/iconfont.js";
-import { Toast } from "mint-ui";
+// import { Toast } from "mint-ui";
 export default {
   data() {
     return {
