@@ -38,10 +38,10 @@
     <div class="control">
       <img v-show="fapaiFlag" ref="card" :src="imgs[52].src" @click="deal" alt>
       <p>
-        <mt-button @click="reStart" type="primary" plain>重新开始</mt-button>
-        <mt-button @click="toOnly" type="primary" plain>简单</mt-button>
-        <mt-button @click="toDouble" type="primary" plain>中等</mt-button>
-        <mt-button @click="toFour" type="primary" plain>困难</mt-button>
+        <button @click="reStart">重新开始</button>
+        <button @click="toOnly"  :class="{'active':diffculty===0?true:false}" >简单</button>
+        <button @click="toDouble" :class="{'active':diffculty===1?true:false}" >中等</button>
+        <button @click="toFour" :class="{'active':diffculty===2?true:false}" >困难</button>
       </p>
     </div>
   </div>
@@ -387,15 +387,12 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 #card_container {
   background: green;
   height: 200vh;
-  width: 1200px;
+  width:100vw;
+  min-width: 1200px;
+  padding-top:20px;
   .body {
     margin: 0 auto;
     transition: all 3s linear;
@@ -441,15 +438,26 @@ export default {
       height: 120px;
     }
     p {
-      margin-left: 400px;
+      margin-left: 300px;
       display: flex;
       flex-wrap: nowrap;
       justify-content: center;
       button {
-        color: #ddd;
-        margin: 10px;
-        padding: 8px;
-        vertical-align: center;
+        color: #fff;
+        background: green;
+        font-size: 20px;
+        height: 50px;
+        width:150px;
+        margin: 20px;
+        border-radius: 25px;
+        border: 1px solid #ca0c16;
+        cursor: pointer;
+        &.active {
+          background: rgba(0, 0, 0,0.2);
+        }
+        &:hover {
+          background: rgba(0, 0, 0,0.5);
+        }
       }
     }
   }

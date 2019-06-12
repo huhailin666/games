@@ -28,6 +28,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .container {
+  min-width:1000px;
   background: #eee;
   text-align: center;
   vertical-align: center;
@@ -44,12 +45,15 @@ export default {
     margin: 10px;
     background: #69cc69;
     color: #fff;
-    // border: 1px solid #ccc;
+    
     padding: 10px 20px;
     margin: 10px 60px;
     border-radius: 30px;
     width: 200px;
     box-shadow: 0px 0px 3px 5px rgba(222, 204, 204, 0.75);
+    &:hover{
+      background: #9add43;
+    }
   }
   .img {
     width: 500px;

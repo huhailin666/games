@@ -1,37 +1,23 @@
  <template>
   <div class="container">
-    <h3>扫雷</h3>
-    <p>
-      <mt-button
-        @click="toHard"
-        :class="{'active':isActive===0?true:false}"
-        type="primary"
-        plain
-      >Hard</mt-button>
-      <mt-button
-        :class="{'active':isActive===1?true:false}"
-        @click="toMedium"
-        type="primary"
-        plain
-      >Medium</mt-button>
-      <mt-button
-        :class="{'active':isActive===2?true:false}"
-        @click="toEasy"
-        type="primary"
-        plain
-      >Easy</mt-button>
-    </p>
-    <transition
-      appear
-      tag="div"
-      leave-active-class="leave"
-      enter-active-class="flip animated"
-      :duration="{leave:500}"
-    >
-      <easy v-if="isActive===2"/>
-      <hard v-else-if="isActive===0"/>
-      <medium v-else/>
-    </transition>
+    <div class="header">
+      <h3>扫雷</h3>
+      <p>
+        <button :class="{'active':isActive===2?true:false}" @click="toEasy">简单</button>
+        <button :class="{'active':isActive===1?true:false}" @click="toMedium">中等</button>
+        <button @click="toHard" :class="{'active':isActive===0?true:false}">困难</button>
+      </p>
+    </div>
+    <div class="main">
+      <transition appear tag="div" :duration="{leave:500}"
+          enter-active-class="flip animated"
+          leave-active-class="close"
+      >
+        <easy v-if="isActive===2"/>
+        <hard v-else-if="isActive===0"/>
+        <medium v-else/>
+      </transition>
+    </div>
   </div>
 </template>
 <script>
@@ -65,28 +51,43 @@ export default {
 <style lang="less" scoped>
 .container {
   background: rgb(238, 238, 238);
-  .leave {
-    display: none;
-  }
-  h3 {
-    margin: 0;
-    padding: 0;
-  }
-  p {
-    width: 500px;
-    margin: 5px auto;
-    display: flex;
-    width: 500px;
-    justify-content: space-around;
-    button {
-      width: 100%;
-      color: black;
-      height: 30px;
-      &.active {
-        background: #ccc;
+  text-align: center;
+  padding-top: 30px;
+  overflow: hidden;
+  .header {
+    padding-right: 30px;
+    float: left;
+    height: 140vh;
+    border-right: 1px solid rgb(182, 41, 41);
+    p {
+      width: 200px;
+      margin: 5px auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      button {
+        color: #ca0c16;
+        background: #fff;
+        font-size: 20px;
+        height: 50px;
+        margin: 20px;
+        border-radius: 5px;
+        border: 1px solid #ca0c16;
+        cursor: pointer;
+        &.active {
+          background: #eee;
+        }
+        &:hover {
+          background: #e6bbbb;
+        }
       }
     }
   }
-  text-align: center;
+  .main {
+    margin-top: -20px;
+    .close{
+      display:none;
+    }
+  }
 }
 </style>

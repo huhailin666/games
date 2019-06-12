@@ -1,21 +1,21 @@
-// {
-//   "presets": ["env", "stage-0"],
-//   "plugins": ["transform-runtime", ["component", [
-//     {
-//       "libraryName": "element-ui",
-//       "style": true
-//     }
-//   ]]]
-// }
 {
   "presets": ["env", "stage-0"],
-  "plugins": [
-    [
-      "component",
-      {
-        "libraryName": "element-ui",
-        "styleLibraryName": "theme-chalk"
-      }
-    ]
-  ]
+  "plugins": ["transform-runtime", ["component", [
+    {
+      "libraryName": "element-ui",
+      "style": true
+    }
+  ]]]
 }
+// {
+//   "presets": ["env", "stage-0"],
+//   "plugins": [
+//     [
+//       "component",
+//       {
+//         "libraryName": "element-ui",
+//         "styleLibraryName": "theme-chalk"
+//       }
+//     ]
+//   ]
+// }

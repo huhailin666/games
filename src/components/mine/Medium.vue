@@ -7,7 +7,7 @@
         </svg>
         <span class="time" style="font-szie:15px;margin:0 5px">{{time}}</span>
       </span>
-      <mt-button @click="reStart" type="primary" plain>重新开始</mt-button>
+      <button @click="reStart">重新开始</button>
       <span>
         <svg class="icon" style="margin:0 5px" aria-hidden="true">
           <use xlink:href="#icon-dilei1"></use>
@@ -183,6 +183,8 @@ export default {
   margin: 0;
 }
 #mineSweep_container {
+  width:800px;
+  margin: 0 auto;
   text-align: center;
   .mineSweep_header {
     width: 500px;
@@ -195,7 +197,13 @@ export default {
       font-size: 20px;
     }
     button {
-      height: 25px;
+      padding: 8px 20px;
+      background:#fff;
+      border:1px solid rgb(247, 140, 140);
+      border-radius: 10px;
+      &:hover{
+        background:rgb(241, 190, 190);
+      }
     }
   }
 

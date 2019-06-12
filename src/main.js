@@ -4,12 +4,12 @@ import router from './router.js'
 
 Vue.config.productionTip = false
 
-// import {Button,Toast} from 'mint-ui'
-// Vue.component(Toast.name,Toast);
-// Vue.component(Button.name, Button);
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+import {Button,Toast} from 'mint-ui'
+Vue.component(Toast.name,Toast);
+Vue.component(Button.name, Button);
+// import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
+// Vue.use(ElementUI);
 import './lib/animate/animate.css'
 import './lib/common/common.css'
 
