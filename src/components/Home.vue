@@ -5,7 +5,6 @@
         <h1>
           <span class="boomtext rollIn animated" v-for="item in title" :key="item">{{item}}</span>
         </h1>
-        <!-- 请选择你想玩的游戏 -->
       </div>
       <a class="button" href="#/card" @mouseenter="xxx=false">蜘蛛纸牌</a>
       <a class="button" href="#/mine" @mouseenter="xxx=true">扫雷</a>
@@ -71,6 +70,7 @@ export default {
   text-align: center;
   vertical-align: center;
   min-height: 100vh;
+  padding-bottom: 20px;
   .header{
     border-bottom: 1px solid red;
     padding: 20px 0;

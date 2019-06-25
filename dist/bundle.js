@@ -25821,7 +25821,6 @@ _jquery2.default.fn.boomText = function (type) {
 //
 //
 //
-//
 
 exports.default = {
   data: function data() {
@@ -42328,7 +42327,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-8dc7cce2] {\n  min-width: 1000px;\n  background: #eee;\n  text-align: center;\n  vertical-align: center;\n  min-height: 100vh;\n}\n.container .header[data-v-8dc7cce2] {\n  border-bottom: 1px solid red;\n  padding: 20px 0;\n  box-shadow: -3px 9px 3px -3px rgba(210, 91, 91, 0.75);\n  margin-bottom: 20px;\n  overflow: hidden;\n  height: 80px;\n}\n.container .header h1[data-v-8dc7cce2] {\n  text-align: left;\n  width: 300px;\n  margin: 0 auto;\n}\n.container .header h1 .boomtext[data-v-8dc7cce2] {\n  display: none;\n  display: inline-block;\n}\n.container .button[data-v-8dc7cce2] {\n  display: inline-block;\n  font-size: 20px;\n  margin: 10px;\n  background: #69cc69;\n  color: #fff;\n  padding: 10px 20px;\n  margin: 10px 60px;\n  border-radius: 30px;\n  width: 200px;\n  box-shadow: 0px 0px 3px 5px rgba(222, 204, 204, 0.75);\n}\n.container .button[data-v-8dc7cce2]:hover {\n  background: #9add43;\n}\n.container .img[data-v-8dc7cce2] {\n  width: 500px;\n  height: 500px;\n  margin: 0 auto;\n  border-radius: 20px;\n  box-shadow: 3px 3px 11px 1px rgba(155, 215, 150, 0.75);\n  overflow: hidden;\n}\n.container .img .img-cotainer[data-v-8dc7cce2] {\n  width: 200%;\n  height: 100%;\n  transition: all 0.5s;\n  transform: translateX(0);\n}\n.container .img .img-cotainer img[data-v-8dc7cce2] {\n  width: 497px;\n  height: 100%;\n}\n.container .img.xxx .img-cotainer[data-v-8dc7cce2] {\n  transform: translateX(-50%);\n}\n", ""]);
+exports.push([module.i, "\n.container[data-v-8dc7cce2] {\n  min-width: 1000px;\n  background: #eee;\n  text-align: center;\n  vertical-align: center;\n  min-height: 100vh;\n  padding-bottom: 20px;\n}\n.container .header[data-v-8dc7cce2] {\n  border-bottom: 1px solid red;\n  padding: 20px 0;\n  box-shadow: -3px 9px 3px -3px rgba(210, 91, 91, 0.75);\n  margin-bottom: 20px;\n  overflow: hidden;\n  height: 80px;\n}\n.container .header h1[data-v-8dc7cce2] {\n  text-align: left;\n  width: 300px;\n  margin: 0 auto;\n}\n.container .header h1 .boomtext[data-v-8dc7cce2] {\n  display: none;\n  display: inline-block;\n}\n.container .button[data-v-8dc7cce2] {\n  display: inline-block;\n  font-size: 20px;\n  margin: 10px;\n  background: #69cc69;\n  color: #fff;\n  padding: 10px 20px;\n  margin: 10px 60px;\n  border-radius: 30px;\n  width: 200px;\n  box-shadow: 0px 0px 3px 5px rgba(222, 204, 204, 0.75);\n}\n.container .button[data-v-8dc7cce2]:hover {\n  background: #9add43;\n}\n.container .img[data-v-8dc7cce2] {\n  width: 500px;\n  height: 500px;\n  margin: 0 auto;\n  border-radius: 20px;\n  box-shadow: 3px 3px 11px 1px rgba(155, 215, 150, 0.75);\n  overflow: hidden;\n}\n.container .img .img-cotainer[data-v-8dc7cce2] {\n  width: 200%;\n  height: 100%;\n  transition: all 0.5s;\n  transform: translateX(0);\n}\n.container .img .img-cotainer img[data-v-8dc7cce2] {\n  width: 497px;\n  height: 100%;\n}\n.container .img.xxx .img-cotainer[data-v-8dc7cce2] {\n  transform: translateX(-50%);\n}\n", ""]);
 
 // exports
 
