@@ -18,8 +18,8 @@
           :key="j"
         >
           <div class="content">
-            <img v-if="!jtem.isOpen" :src="imgs[52].src" alt>
-            <img v-else :src="imgs[(jtem.index)-1].src">
+            <img v-if="!jtem.isOpen" :src="imgs[52].src" alt />
+            <img v-else :src="imgs[(jtem.index)-1].src" />
           </div>
         </div>
         <!-- </transition-group> -->
@@ -29,20 +29,22 @@
           @after-enter="afterEnter($event,i)"
         >
           <div v-show="show[i]" class="box">
-            <img :src="imgs[52].src" alt>
+            <img :src="imgs[52].src" alt />
           </div>
         </transition>
       </div>
       <!-- </transition-group> -->
     </div>
     <div class="control">
-      <img v-show="fapaiFlag" ref="card" :src="imgs[52].src" @click="deal" alt>
-      <p>
-        <button @click="reStart">重新开始</button>
-        <button @click="toOnly"  :class="{'active':diffculty===0?true:false}" >简单</button>
-        <button @click="toDouble" :class="{'active':diffculty===1?true:false}" >中等</button>
-        <button @click="toFour" :class="{'active':diffculty===2?true:false}" >困难</button>
-      </p>
+      <div class="box">
+        <img v-show="fapaiFlag" ref="card" :src="imgs[52].src" @click="deal" alt />
+        <p>
+          <button @click="reStart">重新开始</button>
+          <button @click="toOnly" :class="{'active':diffculty===0?true:false}">简单</button>
+          <button @click="toDouble" :class="{'active':diffculty===1?true:false}">中等</button>
+          <button @click="toFour" :class="{'active':diffculty===2?true:false}">困难</button>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -109,8 +111,13 @@ export default {
     //控制发牌动画
     beforeEnter(el, i) {
       let cardPosition = this.$refs.card.getBoundingClientRect();
-      let left = cardPosition.left - i * parseInt(this.width);
-      let top = cardPosition.top - 40*this.obj[i].length;
+      let left =
+        cardPosition.left -
+        i * parseInt(this.width) -
+        document.querySelector(".body").offsetLeft -
+        5;
+      let top =
+        cardPosition.top - 40 * this.obj[i].length - 20 + window.scrollY;
       el.style.transform = `translate(${left}px,${top}px)`;
       el.style.opacity = 1;
     },
@@ -134,7 +141,7 @@ export default {
         if (this.obj[i][m].number != n || this.obj[i][m].color != color) return;
         if (n === 13) {
           this.obj[i].splice(m);
-          this.$set(this.obj[i][this.obj[i].length-1],'isOpen',true)
+          this.$set(this.obj[i][this.obj[i].length - 1], "isOpen", true);
           this.obj[i].push();
           this.get++;
           console.log("消掉", this.get, "次");
@@ -390,9 +397,9 @@ export default {
 #card_container {
   background: green;
   height: 200vh;
-  width:100vw;
+  width: 100vw;
   min-width: 1200px;
-  padding-top:20px;
+  padding-top: 20px;
   .body {
     margin: 0 auto;
     transition: all 3s linear;
@@ -428,35 +435,38 @@ export default {
   .control {
     position: fixed;
     bottom: 0;
-    text-align: center;
-    display: flex;
-    align-items: flex-end;
-    img {
-      position: absolute;
-      margin: 0 100px;
-      width: 80px;
-      height: 120px;
-    }
-    p {
-      margin-left: 300px;
+    width: 100%;
+    .box {
+      width: 1100px;
+      text-align: center;
       display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
-      button {
-        color: #fff;
-        background: green;
-        font-size: 20px;
-        height: 50px;
-        width:150px;
-        margin: 20px;
-        border-radius: 25px;
-        border: 1px solid #ca0c16;
-        cursor: pointer;
-        &.active {
-          background: rgba(0, 0, 0,0.2);
-        }
-        &:hover {
-          background: rgba(0, 0, 0,0.5);
+      align-items: flex-end;
+      margin: 0 auto;
+      img {
+        width: 80px;
+        height: 120px;
+      }
+      p {
+        margin-left: 150px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        button {
+          color: #fff;
+          background: green;
+          font-size: 20px;
+          height: 50px;
+          width: 150px;
+          margin: 20px;
+          border-radius: 25px;
+          border: 1px solid #ca0c16;
+          cursor: pointer;
+          &.active {
+            background: rgba(0, 0, 0, 0.2);
+          }
+          &:hover {
+            background: rgba(0, 0, 0, 0.5);
+          }
         }
       }
     }

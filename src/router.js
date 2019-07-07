@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import mine from './components/mine/Mine.vue'
 import card from './components/card/Card.vue'
-import test from './components/mine/test.vue'
+//import test from './components/mine/test.vue'
 import home from './components/Home.vue'
 
 Vue.use(Router)
@@ -27,11 +27,6 @@ var router = new Router({
       path: '/card',
       name: 'card',
       component: card
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: test
     }
   ]
 })
