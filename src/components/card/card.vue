@@ -114,10 +114,8 @@ export default {
       let left =
         cardPosition.left -
         i * parseInt(this.width) -
-        document.querySelector(".body").offsetLeft -
-        5;
-      let top =
-        cardPosition.top - 40 * this.obj[i].length - 20 + window.scrollY;
+        document.querySelector(".body").offsetLeft - 5;
+      let top = cardPosition.top - 40 * this.obj[i].length - 20 + window.scrollY;
       el.style.transform = `translate(${left}px,${top}px)`;
       el.style.opacity = 1;
     },
