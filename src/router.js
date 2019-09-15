@@ -1,10 +1,14 @@
 import Vue from 'vue'
 
 import Router from 'vue-router'
-import mine from './components/mine/Mine.vue'
-import card from './components/card/Card.vue'
-//import test from './components/mine/test.vue'
+// import mine from './components/mine/Mine.vue'
+// import card from './components/card/Card.vue'
+// //import test from './components/mine/test.vue'
 import home from './components/Home.vue'
+
+const mine = () => import(/* webpackChunkName: "mine" */"./components/mine/Mine.vue")
+const card = () => import(/* webpackChunkName: "card" */"./components/card/Card.vue")
+// const home = () => import(/* webpackChunkName: "home" */"./components/Home.vue")
 
 Vue.use(Router)
 

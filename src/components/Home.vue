@@ -11,10 +11,10 @@
       <div class="img" :class="{xxx:xxx}">
         <div class="img-cotainer">
           <a href="#/card">
-            <img src="../../static/images/card.jpg" alt>
+            <img src="http://pxtj72woh.bkt.clouddn.com/card.jpg" alt>
           </a>
           <a href="#/mine">
-            <img src="../../static/images/mine.jpg" alt>
+            <img src="http://pxtj72woh.bkt.clouddn.com/mine.jpg" alt>
           </a>
         </div>
       </div>

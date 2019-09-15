@@ -8,8 +8,9 @@ var htmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: path.join(__dirname, './src/main.js'), // 入口文件
   output: { // 指定输出选项
-    path: path.join(__dirname, './dist'), // 输出路径
-    filename: 'bundle.js' // 指定输出文件的名称
+    path: path.resolve(__dirname, './dist'), // 输出路径
+    filename: 'bundle.js' ,//文件格式，文件名.文件哈希
+    chunkFilename: "[id].chunk.js"//文件切割后的文件名称。这里的name对应的就是路由中引入文件时候的webpackChunkName
   },
   plugins: [ // 所有webpack  插件的配置节点
     new htmlWebpackPlugin({
